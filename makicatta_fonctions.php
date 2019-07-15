@@ -3,6 +3,9 @@
 
 include_spip('inc/bandeau');
 include_spip('inc/presentation_mini');
+if(_request('exec') == 'auteur') {
+	include_spip('prive/objets/liste/auteurs_fonctions');
+}
 
 function makicatta_quete_icone($libelle) {
 	$correspondance = [

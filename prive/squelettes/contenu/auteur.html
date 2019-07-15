@@ -1,7 +1,7 @@
 [(#AUTORISER{voir,auteur,#ID_AUTEUR}|sinon_interdire_acces)]
 <BOUCLE_auteur(AUTEURS){id_auteur}{statut==.*}{si #ENV{exec}|=={auteur}}>
 
-              <div class="card card-objet card-auteur bg-light">
+              <div class="card card-objet card-auteur bg-light fiche_objet">
                 <div class="card-body">
                   <div class="row">
                     <div class="col-7">
@@ -13,9 +13,15 @@
                       [(#LOGO_AUTEUR|image_passe_partout{128,128}|image_recadre{128,128}|inserer_attribut{class,img-circle img-fluid})]
                     </div>
                   </div>
+                    <!--/hd-->
                 </div>
                 <div class="card-footer">
                   <div class="text-right">
+                    [(#ID_AUTEUR|=={#SESSION{id_auteur}}|non)
+                      [<a href="(#ID_AUTEUR|auteur_lien_messagerie{#EN_LIGNE,#STATUT,#IMESSAGE})" class="btn btn-sm bg-teal" title="<:info_envoyer_message_prive|attribut_html:>">
+                        <i class="fas fa-comments"></i>
+                      </a>]
+                    ]
 					[(#AUTORISER{modifier,auteur,#ID_AUTEUR})
                     <a href="#URL_ECRIRE{auteur_edit,id_auteur=#ID_AUTEUR}" class="btn btn-sm btn-primary">
                       <i class="fas fa-user"></i> <:admin_modifier_auteur:>

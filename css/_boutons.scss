@@ -13,7 +13,7 @@
   @extend .btn-primary;
 }
 
-.formulaire_spip .supprimer {
+.formulaire_spip .supprimer, .urls .bouton_action_post .submit{
   @extend .btn-danger;
 }
 

@@ -1,0 +1,27 @@
+[(#INFO_STATUT{#OBJET,#ID_OBJET}|!={prepa}|oui)
+
+
+#SET{url,#ID_OBJET|generer_url_entite{#OBJET,'','',#EVAL{true}}|url_absolue}
+
+            <div class="card card-url collapsed-card">
+              <div class="card-header">
+                <h3 class="card-title"><:info_url:> <a href="[(#GET{url})]">#GET{url}</a></h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+              	<div class="ajax">
+				#FORMULAIRE_EDITER_URL_OBJET{#OBJET,#ID_OBJET}
+				</div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+
+]

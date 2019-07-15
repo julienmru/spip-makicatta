@@ -70,3 +70,35 @@
 		display: none;
 	}
 }
+
+.fiche_objet .editer_urls 
+{
+	font-size: 0.75rem;
+	.link {
+		background: none;
+		padding: 0;
+		display: inline-block;
+		&:before {
+	      @extend %fa-icon;
+	      @extend .fas;
+	      content: fa-content($fa-var-link);
+	      padding-right: 0.5rem;
+		}
+		.edit {
+			padding-left: 0.5rem;
+		}
+		margin-bottom: 0.5rem;
+	}
+	.liste-objets table caption strong.caption {
+		font-size: 0.75rem;
+	}
+}
+
+.card-url {
+	.card-body {
+		padding-bottom: 0;
+	}
+	.formulaire_spip {
+		margin-bottom: 0 !important;
+	}
+}

@@ -39,6 +39,9 @@
 		  vertical-align: top;
 		  border-top: 1px solid #dee2e6;
 		  background: transparent !important;
+		  &.action {
+			  padding: 0.25rem;
+		  }
 	  }
 		tbody tr.row_even {
 		  background: #f2f2f2;
