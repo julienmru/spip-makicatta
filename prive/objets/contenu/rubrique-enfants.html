@@ -1,0 +1,37 @@
+[(#ID_RUBRIQUE|non)
+
+	[(#INCLURE{fond=prive/objets/contenu/rubrique-enfants-rubriques, id_rubrique=0})]
+
+]
+
+
+[(#ID_RUBRIQUE|oui)
+
+	[(#REM)
+
+		Les articles a valider
+	]
+	[
+		[(#BOITE_OUVRIR{<:texte_en_cours_validation:>,'basic highlight'})]
+		(#PIPELINE{rubrique_encours,#ARRAY{args,#ARRAY{type,rubrique,id_objet,#ID_RUBRIQUE},data,#INCLURE{fond=prive/objets/liste/articles,titre=<:info_articles_proposes:>,statut=prop,id_rubrique,par=date,ajax,env}}})
+		#BOITE_FERMER
+	]
+
+	[(#REM)
+
+		Les articles en cours de redaction
+	]
+	[(#AUTORISER{publierdans,rubrique,#ID_RUBRIQUE}|?{
+		#INCLURE{fond=prive/objets/liste/articles,titre=<:info_tous_articles_en_redaction:>,statut=prepa,id_rubrique,par=date,ajax,env}
+		,
+		#INCLURE{fond=prive/objets/liste/articles,titre=<:info_tous_articles_en_redaction:>,statut=prepa,id_rubrique,id_auteur=#SESSION{id_auteur},par=date,ajax,env}
+		})
+	]
+
+	[(#REM)
+
+		Les articles publies
+	]
+	[(#INCLURE{fond=prive/objets/liste/articles,titre=<:info_tous_articles_presents:>,statut=publie,id_rubrique,par=date,ajax,env}
+		|sinon{#INCLURE{fond=prive/objets/liste/articles,titre=<:info_tous_articles_refuses:>,statut=refuse,id_rubrique,par=date,ajax,env}})]
+]

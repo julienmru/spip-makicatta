@@ -1,0 +1,23 @@
+.formulaire_spip .submit, .formulaire_spip .reset, .formulaire_spip .button,
+.bouton_action_post .submit, #pave_selection input[type=submit]
+{
+  @extend .btn;
+}
+
+.formulaire_spip .reset, .formulaire_spip .button, .bouton_action_post .submit {
+  @extend .btn-default;
+}
+
+
+.formulaire_spip .submit {
+  @extend .btn-primary;
+}
+
+.formulaire_spip .supprimer {
+  @extend .btn-danger;
+}
+
+#pave_selection input[type=submit] {
+  @extend .btn-primary;
+  @extend .btn-sm;
+}

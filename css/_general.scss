@@ -1,0 +1,48 @@
+.brand-image {
+	max-width: 34px;
+	border-radius: 34px;
+}
+
+.image {
+	.no-icon {
+		color: $primary;
+		text-align: center;
+	    width: 1.6rem;
+	    font-size: 2.125rem;
+	    margin-right: 0.2rem;
+	}
+}
+
+.main-footer {
+	font-size: 70%;
+	a.spip_out, a[rel=external] {
+		@extend a;
+	}
+}
+
+.select2-container .select2-selection--single, .select2-container--default .select2-selection--single .select2-selection__arrow {
+	height: 2rem;
+}
+
+h1.grostitre {
+	font-size: 1.8rem;
+	margin: 0 0 1rem;
+	padding: 0;
+}
+
+.icone.horizontale {
+	padding: 0;
+}
+
+
+.sidebar-collapse .main-sidebar {
+	.nav-item>.nav-treeview {
+	 	height:0;
+	 	opacity: 0;
+	 	transition: margin-left .3s ease-in-out,width .3s ease-in-out;
+	}
+	&:hover .nav-item>.nav-treeview {
+	 	height:auto;
+	 	opacity: 1;
+	}
+}

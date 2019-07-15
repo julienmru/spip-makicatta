@@ -1,0 +1,39 @@
+	<div class="row">
+		<BOUCLE_rubriques(RUBRIQUES){id_parent=#ID_RUBRIQUE}{tout}>
+		<div class="col-sm-12 col-md-6 col-lg-4">
+          <B_sous_rubriques>
+          <div class="card[ (#ENV{collapsed}|=={oui}|?{collapsed-card})]">
+            <div class="card-header">
+              <h3 class="card-title"><a href="#URL_ECRIRE{rubrique_edit,id_rubrique=#ID_RUBRIQUE}">#_rubriques:TITRE</a></h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fas fa-[(#ENV{collapsed}|=={oui}|?{plus,minus})]"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <ul class="nav nav-pills flex-column">
+              	<BOUCLE_sous_rubriques(RUBRIQUES){id_parent=#ID_RUBRIQUE}{tout}>
+                <li class="nav-item">
+                  <a href="#URL_ECRIRE{rubrique_edit,id_rubrique=#ID_RUBRIQUE}" class="nav-link">
+                    <i class="fas fa-folder"></i> #TITRE
+                  </a>
+                </li>
+                </BOUCLE_sous_rubriques>
+              </ul>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+          </B_sous_rubriques>
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title"><a href="#URL_ECRIRE{rubrique_edit,id_rubrique=#ID_RUBRIQUE}">#TITRE</a></h3>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+          <//B_sous_rubriques>
+      </div>
+      </BOUCLE_rubriques>
+    </div>

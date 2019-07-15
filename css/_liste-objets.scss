@@ -1,0 +1,60 @@
+
+.liste-objets {
+	border: none;
+	border-radius: 0;
+	margin: 0;
+	box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);
+	table {
+		caption {
+		    border-bottom: 1px solid rgba(0,0,0,.125);
+			border-top-left-radius: .25rem;
+			border-top-right-radius: .25rem;
+		    position: relative;
+		    background-color: #fff;
+		    padding: .75rem 1.25rem;
+		    strong.caption {
+		    	display: inline;
+				font-size: 1.25rem;
+			    font-weight: 400;
+			    margin: 0;
+			    line-height: 1.2;
+			    background: transparent !important;
+			    padding-left: 0 !important;
+		    }
+		}
+	  width: 100%;
+	  margin-bottom: 1rem;
+	  color: #212529;
+	  background-color: transparent;
+	  thead {
+	  	th {
+		  vertical-align: bottom;
+		  padding: 0.75rem;
+		  vertical-align: top;
+		  border-top: 1px solid #dee2e6;
+		}
+	  }
+	  td {
+		  padding: 0.75rem;
+		  vertical-align: top;
+		  border-top: 1px solid #dee2e6;
+		  background: transparent !important;
+	  }
+		tbody tr.row_even {
+		  background: #f2f2f2;
+		}
+		.date, .trad {
+			white-space: nowrap;
+		}
+	}
+		.pagination-container {
+		    margin: -1rem 0 1rem;
+			padding: .75rem 1.25rem;
+		    background-color: #f7f7f7;
+		    border-top: 0 solid #dedede;
+		    .pagination {
+			    font-weight: normal;
+			    background: transparent;
+		    }
+		}
+}

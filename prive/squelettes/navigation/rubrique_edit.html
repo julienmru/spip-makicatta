@@ -1,0 +1,40 @@
+          <B_sous_rubriques>
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title"><:onglet_sous_rubriques:></h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <ul class="nav nav-pills flex-column">
+              	<BOUCLE_sous_rubriques(RUBRIQUES){id_parent=#ID_RUBRIQUE}{tout}>
+                <li class="nav-item">
+                  <a href="#URL_ECRIRE{rubrique_edit,id_rubrique=#ID_RUBRIQUE}" class="nav-link">
+                    <i class="fas fa-folder"></i> #TITRE
+                  </a>
+                </li>
+                </BOUCLE_sous_rubriques>
+              </ul>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+          </B_sous_rubriques>
+
+
+
+[(#ENV{new}|=={oui}|non)
+  #BOITE_OUVRIR{'','info'}
+  #PIPELINE{boite_infos,#ARRAY{data,'',args,#ARRAY{'type','rubrique','id',#ENV{id_rubrique}}}}
+  #BOITE_FERMER
+
+<div class="ajax">
+#FORMULAIRE_EDITER_LOGO{rubrique,#ID_RUBRIQUE,'',#ENV**}
+</div>
+
+#PIPELINE{afficher_config_objet,#ARRAY{args,#ARRAY{type,rubrique,id,#ID_RUBRIQUE},data,''}}
+
+]

@@ -1,0 +1,16 @@
+
+
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}{tout}>
+[(#PIPELINE{affiche_enfants,[(#ARRAY{args,#ARRAY{exec,rubrique,id_rubrique,#ID_RUBRIQUE,objet,rubrique,id_objet,#ID_RUBRIQUE},data,#INCLURE{fond=prive/objets/contenu/rubrique-enfants,id_rubrique,env}})]})]
+
+#PIPELINE{afficher_complement_objet,#ARRAY{args,#ARRAY{type,rubrique,id,#ID_RUBRIQUE},data,'<div class="nettoyeur"></div>'}}
+
+[(#CONST{_AJAX}|oui)
+	<script type="text/javascript">/*<!\[CDATA\[*/reloadExecPage('#ENV{exec}','#navigation,#chemin,#extra');/*\]\]>*/</script>
+]
+</BOUCLE_rubrique>
+
+<h2><:icone_modifier_rubrique:></h2>
+
+<INCLURE{fond=prive/echafaudage/contenu/objet_edit,objet=rubrique,id_objet=#ID_RUBRIQUE,env}>
+

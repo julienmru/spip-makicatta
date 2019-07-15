@@ -1,0 +1,45 @@
+<!-- pagination -->
+#ENV*{bloc_ancre}
+#SET{bornes,#ENV{page_courante}|bornes_pagination{#ENV{nombre_pages},5}}
+#SET{premiere, #GET{bornes}|reset}
+#SET{derniere, #GET{bornes}|end}
+#SET{pages,#GET{premiere}|range{#GET{derniere}}}
+#SET{sep,#ENV{separateur,'-'}}
+<B_pages>
+	<div class="clearfix pagination-container">
+	<ul class="pagination pagination-sm m-0 float-right">[
+
+	(#SET{item, #ENV{page_courante}|moins{2}|mult{#ENV{pas}} })
+
+	][<li
+	class="page-item prev previous[(#ENV{page_courante}|<={1}|oui)disabled]">(#ENV{url}
+	|parametre_url{#ENV{debut},#GET{item}}
+	|ancre_url{#ENV{ancre}}
+	|lien_ou_expose{&laquo;,'','page-link lien_pagination','',nofollow}
+	|inserer_attribut{rel,prev}
+	)</li>][<li class="page-item"><a
+	href='[(#ENV{url}|parametre_url{#ENV{debut},''}|ancre_url{#ENV{ancre}})]'
+	class='page-link lien_pagination'
+	rel='nofollow'
+	title='1'>(#GET{premiere}|>{1}|?{#ICON{start,'',1}})</a></li><li
+	class="page-item tbc disabled"><span class="page-link">...</span></li>]<BOUCLE_pages(POUR){tableau #GET{pages}}>[
+		(#SET{item, #VALEUR|moins{1}|mult{#ENV{pas}} })
+		][<li class="page-item[(#VALEUR|=={#ENV{page_courante}}|oui)active]">(#ENV{url}
+		|parametre_url{#ENV{debut},#GET{item}}
+		|ancre_url{#ENV{ancre}}
+		|lien_ou_expose{#VALEUR,'',page-link lien_pagination,'',nofollow})</li>]</BOUCLE_pages>[<li
+	class="page-item next[(#ENV{page_courante}|>={#ENV{nombre_pages}}|oui)disabled]">(#ENV{url}
+	|parametre_url{#ENV{debut},#GET{item}}
+	|ancre_url{#ENV{ancre}}
+	|lien_ou_expose{&raquo;,'','page-link lien_pagination','',nofollow}
+	|inserer_attribut{rel,next}
+	)</li>][<li
+	class="page-item all">(#ENV{url}
+	|parametre_url{#ENV{debut},-1}
+	|ancre_url{#ENV{ancre}}
+	|lien_ou_expose{<:lien_tout_afficher:>,'','page-link lien_pagination','',nofollow}
+	|inserer_attribut{rel,prev}
+	)</li>]
+	</ul>
+	</div>
+</B_pages><!-- /pagination -->

@@ -1,0 +1,25 @@
+<paquet
+	prefix="makicatta"
+	categorie="edition"
+	version="0.0.0"
+	etat="dev"
+	compatibilite="[3.2.0;3.2.*]"
+>	
+
+	<nom>Maki Catta</nom>
+
+	<auteur lien="https://www.cari.agency">Julien Tessier, Agence Cari</auteur>
+	<credit lien="https://www.adminlte.io">AdminLTE</credit>
+
+	<copyright>2009-2014</copyright>
+
+	<licence lien="http://www.gnu.org/licenses/gpl-2.0.html">GPL 2</licence>
+
+	<pipeline nom="affichage_final_prive" inclure="inc/pipelines.php" />
+
+	<necessite nom="scssphp" compatibilite="[2.1.0;]" />
+
+	<lib nom="bootstrap-4.3.1" lien="https://github.com/twbs/bootstrap/archive/v4.3.1.zip" />
+	<lib nom="adminlte" lien="https://github.com/ColorlibHQ/AdminLTE/archive/v3.0.0-beta.1.zip" />
+
+</paquet>

@@ -1,0 +1,40 @@
+
+.formulaire_spip, #pave_selection {
+  margin: 0 0 1rem;
+  padding: 0;
+  @extend .card;
+  @include box-shadow($card-shadow);
+}
+.formulaire_spip {
+    .editer-groupe, fieldset, fieldset .editer-groupe, .boutons, .titrem, .legend {
+    	padding: 0;
+    	margin: 0;
+    }
+    h3.titrem {
+        @extend .card-header;
+        @extend .card-title;
+        color: $body-color;
+        text-transform: none;
+	    img {
+	    	display: none;
+	    }
+	}
+    .boutons {
+        padding: .75rem 1.25rem;
+	    background-color: rgba(0,0,0,.03);
+	    border-top: 0 solid rgba(0,0,0,.125);
+    }
+    .editer_logo_on, .editer_logo_off {
+    	padding: 1rem 0 0;;
+    	text-align: center;
+    	input.submit.supprimer {
+		    padding: .25rem .5rem;
+		    font-size: .875rem;
+    	}
+    }
+}
+#pave_selection {
+	.liste-objets {
+		box-shadow: none;
+	}
+}

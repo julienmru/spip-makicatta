@@ -1,0 +1,50 @@
+			<div class="content-header">
+				<div class="container-fluid">
+			        <div class="row mb-2">
+			          <BOUCLE_principale(RUBRIQUES){id_rubrique}{tout}>
+			          <div class="col-md-6">
+			            <h1 class="m-0 text-dark">
+			            	#TITRE
+
+
+<BOUCLE_verifierrub(RUBRIQUES){id_rubrique}{statut==.*}{si #AUTORISER{creerarticledans,rubrique,#ID_RUBRIQUE}}{0,1}>
+	[<a class="btn btn-default" href="(#URL_ECRIRE{article_edit,new=oui}|parametre_url{id_rubrique,#ENV{id_rubrique}})"><:icone_ecrire_article:></a>]
+</BOUCLE_verifierrub>
+
+[(#AUTORISER{creerrubriquedans,rubrique,#ID_RUBRIQUE}|oui)
+	[(#ID_RUBRIQUE|oui)
+		[<a class="btn btn-default" href="(#URL_ECRIRE{rubrique_edit,new=oui&id_parent=#ID_RUBRIQUE})"><:icone_creer_sous_rubrique:></a>]
+	]
+	[(#ID_RUBRIQUE|non)
+		[<a class="btn btn-default" href="(#URL_ECRIRE{rubrique_edit,new=oui})"><:icone_creer_rubrique:></a>]
+	]
+]
+
+			            </h1>
+			          </div>
+			          #SET{id_parent,#ID_PARENT}
+			          #SET{titre,#TITRE}
+			          </BOUCLE_principale>
+			          </B_principale>
+			          <div class="col-md-6">
+			            <h1 class="m-0 text-dark">
+			            	<:icone_creer_rubrique:>
+			            </h1>
+			          </div>
+			          #SET{id_parent,#ENV{id_parent}}
+			          <//B_principale>
+			          <div class="col-md-6">
+			          	<ol class="breadcrumb float-sm-right">
+			              <li class="breadcrumb-item"><a href="#URL_ECRIRE"><:icone_accueil:></a></li>
+			              <li class="breadcrumb-item"><a href="#URL_ECRIRE{rubriques}"><:info_racine_site:></a></li>
+			              <BOUCLE_hierarchie_rubrique(RUBRIQUES){id_rubrique=#GET{id_parent}}>
+			              <BOUCLE_hierarchie(HIERARCHIE){id_rubrique}{tout}>
+			              <li class="breadcrumb-item"><a href="#URL_ECRIRE{rubrique,id_rubrique=#ID_RUBRIQUE}">#TITRE</a></li>
+				          </BOUCLE_hierarchie>
+				          </BOUCLE_hierarchie_rubrique>
+			              <li class="breadcrumb-item active">[(#GET{titre}|sinon{<:info_sans_titre:>})]</li>
+			            </ol>
+			          </div>
+			        </div><!-- /.row -->
+				</div>
+			</div>

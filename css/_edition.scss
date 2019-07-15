@@ -1,0 +1,49 @@
+
+.card {
+	.infos {
+		.numero {
+			text-align: center;
+			font-weight: 700;
+			p {
+				font-size: 4rem;
+			    white-space: nowrap;
+			    margin-top: 0;
+			    line-height: 1;
+			}
+		}
+		.formulaire_instituer .show {
+			margin: 0 -1.25rem;
+			padding: 1.25rem;
+		}
+		.instituer_objet {
+			margin: 0 -1.25rem;
+		}
+	}
+	.formulaire_spip {
+	    border: 0;
+	    border-radius: 0;
+	    box-shadow: none;
+	    margin: 0;
+	}
+}
+.navigation {
+	.formulaire_spip {
+		.editer {
+			padding: 1.25rem;
+			label {
+				float: none;
+				margin: 0;
+				display: block;
+				width: 100%;
+			}
+		}
+		.editer_statut {
+			padding-bottom: 0;
+		}
+		.sourceup {
+			padding: 1.25rem;
+			font-size: 80%;
+		}
+		padding-bottom: 0;
+	}
+}

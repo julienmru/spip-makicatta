@@ -1,0 +1,13 @@
+<?php
+	// on redirige directement vers le mode éditions si on a le droit d'éditer
+	if (makicatta_edition_directe(_request('exec'))) {
+		$objet = _request('exec');
+		$id_objet = _request('id_'.$objet);
+		include_spip('inc/autoriser');
+		if (autoriser('modifier', $objet, $id_objet)) {
+			include_spip('inc/headers');
+			redirige_par_entete(generer_url_ecrire($objet.'_edit', 'id_'.$objet.'='.$id_objet, true));
+		}
+	}
+?>
+<INCLURE{fond=prive/squelettes/structure}{env}{type-page=#ENV{type-page,#ENV{exec}}}{composition=#ENV{composition,''}}>

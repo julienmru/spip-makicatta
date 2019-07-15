@@ -1,0 +1,32 @@
+[(#PIPELINE{body_prive,[(#VAL{<body class="hold-transition sidebar-mini layout-fixed sidebar-collapse #ENV{type-page,page}[ #ENV{type-page,page}_(#ENV{composition,''})][ statut_(#SESSION{statut})][ webmestre_(#SESSION{webmestre})][ auteur_(#SESSION{id_auteur})] [(#REM|init_body_class)][(#ENV{type-page,page}|match{_edit$}|oui)edition]">})]})]
+	<div class="wrapper">
+		<INCLURE{fond=prive/squelettes/inclure/barre-nav,lang,recherche,plugins=(#REM|parametres_css_prive)}>
+		<div class="content-wrapper">
+			[(#SESSION{id_auteur}|alertes_auteur)]
+
+			#INCLURE{fond=prive/squelettes/header/#ENV{type-page},ajax=top,env}
+
+			<section class="content">
+				<div class="container-fluid">
+					<div class="row">
+						#SET{colonne,''}
+						[<div class="col-md-4 col-lg-3 navigation">
+							(#INCLURE{fond=prive/squelettes/navigation/#ENV{type-page},ajax=navigation,env})
+							[(#INCLURE{fond=prive/squelettes/extra/#ENV{type-page},ajax=extra,env})]
+							#SET{colonne,' '}
+						</div>]
+						<div class="[(#GET{colonne}|?{'col-md-8 col-lg-9', 'col-sm-12'})] order-first">
+							<INCLURE{fond=prive/squelettes/contenu/#ENV{type-page},ajax=contenu,env}>
+						</div>
+					</div>
+				</div>
+			</section>
+
+ 		</div>
+ 		<!-- /.content-wrapper -->
+
+		<footer class="main-footer text-right">
+			<INCLURE{fond=prive/squelettes/inclure/pied}>
+		</footer>
+	</div>
+</body>
