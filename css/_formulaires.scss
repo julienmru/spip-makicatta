@@ -6,6 +6,7 @@
   @include box-shadow($card-shadow);
 }
 .formulaire_spip {
+    padding: 0 1.25rem;
     .editer-groupe, fieldset, fieldset .editer-groupe, .boutons, .titrem, .legend {
     	padding: 0;
     	margin: 0;
@@ -13,6 +14,7 @@
     h3.titrem {
         @extend .card-header;
         @extend .card-title;
+        margin: 0 -1.25rem 0.75rem;
         color: $body-color;
         text-transform: none;
 	    img {
@@ -20,6 +22,7 @@
 	    }
 	}
     .boutons {
+        margin: 0 -1.25rem;
         padding: .75rem 1.25rem;
 	    background-color: rgba(0,0,0,.03);
 	    border-top: 0 solid rgba(0,0,0,.125);

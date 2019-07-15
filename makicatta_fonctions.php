@@ -2,6 +2,7 @@
 
 
 include_spip('inc/bandeau');
+include_spip('inc/presentation_mini');
 
 function makicatta_quete_icone($libelle) {
 	$correspondance = [
