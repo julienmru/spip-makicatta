@@ -11,9 +11,9 @@
 	<auteur lien="https://www.cari.agency">Julien Tessier, Agence Cari</auteur>
 	<credit lien="https://www.adminlte.io">AdminLTE</credit>
 
-	<copyright>2009-2014</copyright>
+	<copyright>2019</copyright>
 
-	<licence lien="http://www.gnu.org/licenses/gpl-2.0.html">GPL 2</licence>
+	<licence lien="https://www.gnu.org/licenses/gpl-3.0.html">GPL 3</licence>
 
 	<pipeline nom="affichage_final_prive" inclure="inc/pipelines.php" />
 
