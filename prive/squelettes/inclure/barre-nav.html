@@ -45,7 +45,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     [(#SET{configurer,#AUTORISER{configurer}|?{oui,''}})]
-    [(#GET{configurer}|oui)<a href="#URL_ECRIRE{configurer_identite}" class="brand-link" title="<:titre_identite_site|attribut_html:>" >]
+    [(#GET{configurer}|oui)<a href="#URL_ECRIRE{configurer_identite}" class="brand-link">]
     [(#GET{configurer}|non)<span class="brand-link">]
       <img src="[(#LOGO_SITE_SPIP|image_passe_partout{128,128}|image_recadre{128,128}|extraire_attribut{src}|sinon{#CHEMIN{prive/images/logo-spip.svg}|timestamp})]" alt="[(#NOM_SITE_SPIP|attribut_html)]" class="brand-image img-circle elevation-3">
         <span class="brand-text font-weight-light">
