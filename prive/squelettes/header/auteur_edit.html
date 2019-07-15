@@ -1,0 +1,37 @@
+
+
+			<div class="content-header">
+				<div class="container-fluid">
+			        <div class="row mb-2">
+			          <BOUCLE_principale(AUTEURS){id_auteur}{tout}>
+			          <div class="col-md-6">
+			            <h1 class="m-0 text-dark">
+			            	#SET{titre,#NOM|sinon{#LOGIN}}
+			            	[(#ENV{exec}|=={auteur}|oui)
+				            	#GET{titre}
+			            	]
+			            	[(#ENV{exec}|=={auteur}|non)
+				            	<:info_modifier_titre{titre=#GET{titre}}:>
+			            	]
+			            </h1>
+			          </div>
+			          #SET{id_rubrique,#ID_RUBRIQUE}
+			          </BOUCLE_principale>
+			          </B_principale>
+			          <div class="col-md-6">
+			            <h1 class="m-0 text-dark">
+			            	<:icone_creer_nouvel_auteur:>
+			            </h1>
+			          </div>
+			          #SET{id_rubrique,#ENV{id_rubrique}}
+			          <//B_principale>
+			          <div class="col-md-6">
+			          	<ol class="breadcrumb float-sm-right">
+			              <li class="breadcrumb-item"><a href="#URL_ECRIRE"><:icone_accueil:></a></li>
+			              <li class="breadcrumb-item"><a href="#URL_ECRIRE{auteurs}"><:info_auteurs:></a></li>
+			              <li class="breadcrumb-item active">[(#GET{titre}|sinon{<:info_sans_titre:>})]</li>
+			            </ol>
+			          </div>
+			        </div><!-- /.row -->
+				</div>
+			</div>

@@ -10,7 +10,8 @@
 ]
 </BOUCLE_rubrique>
 
+[(#ENV{new}|=={oui}|non)
 <h2><:icone_modifier_rubrique:></h2>
-
+]
 <INCLURE{fond=prive/echafaudage/contenu/objet_edit,objet=rubrique,id_objet=#ID_RUBRIQUE,env}>
 

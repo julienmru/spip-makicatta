@@ -1,0 +1,26 @@
+[(#ID_AUTEUR|intval|oui)
+	[(#AUTORISER{modifier,auteur,#ID_AUTEUR}|sinon_interdire_acces)]
+][(#ID_AUTEUR|intval|non)
+	[(#AUTORISER{creer,auteur}|sinon_interdire_acces)]
+]
+#SET{retour,#ENV{redirect}|sinon{#ID_AUTEUR|intval|?{#URL_ECRIRE{auteur,id_auteur=#ID_AUTEUR},#URL_ECRIRE{auteurs}}}}
+
+
+[(#ID_AUTEUR|oui)
+	[<p><a href="(#GET{retour})" class="btn btn-default"><i class="fas fa-angle-left"></i>&nbsp;&nbsp;<:icone_retour:></a></p>]
+]
+
+
+<div class='cadre-formulaire-editer'>
+	#SET{redirect,#ENV{redirect,#ID_AUTEUR|generer_url_entite{auteur}}}
+	[(#ENV{retourajax,''}|oui)
+		#SET{redirect,#GET{retour}}
+		<div class="ajax">
+	]
+	#FORMULAIRE_EDITER_AUTEUR{#ENV{id_auteur,oui},#GET{redirect},#ENV{associer_objet}}
+	[(#ENV{retourajax,''}|oui)
+		</div>
+		<script type="text/javascript">/*<!\[CDATA\[*/reloadExecPage('#ENV{exec}','#navigation,#extra');/*\]\]>*/</script>
+	]
+
+</div>

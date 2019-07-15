@@ -7,16 +7,12 @@
 #SET{redirect,#ENV{redirect}|sinon{#ENV{lier_trad,#ID_OBJET}|?{#ENV{lier_trad,#ID_OBJET}|generer_url_entite{#OBJET},#GET{id_rubrique}|?{#GET{id_rubrique}|generer_url_entite{rubrique},#URL_ECRIRE{rubriques}}}}}
 
 [(#OBJET|makicatta_edition_directe|non)
+
+[(#ID_OBJET|oui)
+	[<p><a href="(#GET{redirect})" class="btn btn-default"><i class="fas fa-angle-left"></i>&nbsp;&nbsp;<:icone_retour:></a></p>]
+]
+
 <div class='cadre-formulaire-editer'>
-<div class="entete-formulaire">
-	[(#ID_OBJET|oui)
-	[(#GET{redirect}|icone_verticale{[(#OBJET|objet_info{texte_retour}|_T)],#OBJET|objet_info{icone_objet},'',left retour[(#ENV{retourajax,''}|oui)ajax preload]})]
-	]
-	[
-		[(#OBJET|objet_info{#ID_OBJET|?{texte_modifier,texte_creer}}|_T)]
-		<h1>(#ENV*{titre,#INFO_TITRE{#OBJET,#ID_OBJET}|sinon{<:info_sans_titre:>}})</h1>
-	]
-</div>
 ]
 [(#OBJET|makicatta_edition_directe|oui)
 <div class='cadre-formulaire-editer mt-0'>

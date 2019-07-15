@@ -10,6 +10,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'tableau_de_bord' => 'Tableau de bord',
 	'bienvenue_sur_spip' => 'Bienvenue sur SPIP !',
 	'rechercher_un_article' => 'Rechercher un article :',
+	'rechercher_un_auteur' => 'Rechercher un auteur :',
 	'interface_basee_sur_adminlte' => 'interface d’administration basée sur [AdminLTE->https://adminlte.io/]',
 	'attention' => 'Attention !',
 );

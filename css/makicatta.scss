@@ -3,6 +3,12 @@
 @import "../../lib/bootstrap-4.3.1/scss/functions";
 @import "css/bootstrap-variables"; 
 @import "../../lib/bootstrap-4.3.1/scss/bootstrap";
+// Fontawesome
+// ---------------------------------------------------
+@import "../../lib/fontawesome/scss/fontawesome";
+$fa-font-path: '../../../lib/fontawesome/webfonts';
+@import "../../lib/fontawesome/scss/regular";
+@import "../../lib/fontawesome/scss/solid";
 // VARIABLES AND MIXINS
 // ---------------------------------------------------
 @import "../../lib/adminlte/build/scss/variables";
@@ -58,3 +64,4 @@
 @import "css/liste-objets";
 @import "css/formulaires";
 @import "css/edition";
+@import "css/messages";

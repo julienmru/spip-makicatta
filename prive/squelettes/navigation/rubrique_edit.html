@@ -10,7 +10,7 @@
             </div>
             <div class="card-body p-0">
               <ul class="nav nav-pills flex-column">
-              	<BOUCLE_sous_rubriques(RUBRIQUES){id_parent=#ID_RUBRIQUE}{tout}>
+              	<BOUCLE_sous_rubriques(RUBRIQUES){id_parent=#ENV{new}|=={oui}|?{-1,#ID_RUBRIQUE}}{tout}>
                 <li class="nav-item">
                   <a href="#URL_ECRIRE{rubrique_edit,id_rubrique=#ID_RUBRIQUE}" class="nav-link">
                     <i class="fas fa-folder"></i> #TITRE

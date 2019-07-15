@@ -1,0 +1,39 @@
+.formulaire_spip .reponse_formulaire, .error, .success, .notice, .information {
+	background: transparent;
+	border: none;
+	@extend .alert;
+	@extend .alert-info;
+    &:before {
+      @extend %fa-icon;
+      @extend .fas;
+      content: fa-content($fa-var-info);
+      padding-right: 1rem;
+    }
+}
+
+.formulaire_spip .reponse_formulaire_ok, .success {
+    @extend .alert-success;
+    &:before {
+      content: fa-content($fa-var-check);
+    }
+}
+
+.notice {
+    @extend .alert-warning;
+    &:before {
+      content: fa-content($fa-var-exclamation-triangle);
+    }
+}
+
+.formulaire_spip .reponse_formulaire_erreur, .error {
+    @extend .alert-danger;
+    &:before {
+      content: fa-content($fa-var-ban);
+    }
+}
+
+.formulaire_spip .editer {
+	.erreur_message {
+		color: $danger;
+	}
+}

@@ -3,7 +3,7 @@
       [(#ENV{action}|form_hidden)]
       [<label>(#ENV{label}) </label>]
       <div class="input-group[ (#ENV{type}|=={navbar}|?{input-group-sm})]">
-        <input class="form-control[ form-control-(#ENV{type})]" type="search" placeholder="<:info_rechercher|attribut_html:>" aria-label="<:info_rechercher|attribut_html:>">
+        <input class="form-control[ form-control-(#ENV{type})]" type="search" placeholder="<:info_rechercher|attribut_html:>" aria-label="<:info_rechercher|attribut_html:>" name="recherche"[ value="(#ENV{recherche}|attribut_html)"]>
         <div class="input-group-append">
           <button class="btn btn-[(#ENV{type}|=={navbar}|?{navbar,default})]" type="submit">
             <i class="fas fa-search"></i>

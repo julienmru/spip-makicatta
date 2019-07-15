@@ -1,0 +1,57 @@
+[(#AUTORISER{voir,auteur,#ID_AUTEUR}|sinon_interdire_acces)]
+<BOUCLE_auteur(AUTEURS){id_auteur}{statut==.*}{si #ENV{exec}|=={auteur}}>
+
+              <div class="card card-objet card-auteur bg-light">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-7">
+                      <h2 class="lead"><b>[(#NOM|sinon{#LOGIN})]</b></h2>
+
+                      <INCLURE{fond=prive/objets/contenu/auteur,id=#ID_AUTEUR,id_auteur=#ID_AUTEUR,exec=#ENV{exec},wysiwyg=1,espace_prive}>
+                    </div>
+                    <div class="col-5 text-right">
+                      [(#LOGO_AUTEUR|image_passe_partout{128,128}|image_recadre{128,128}|inserer_attribut{class,img-circle img-fluid})]
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="text-right">
+					[(#AUTORISER{modifier,auteur,#ID_AUTEUR})
+                    <a href="#URL_ECRIRE{auteur_edit,id_auteur=#ID_AUTEUR}" class="btn btn-sm btn-primary">
+                      <i class="fas fa-user"></i> <:admin_modifier_auteur:>
+                    </a>
+                    ]
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+[(#REM|changer_typo)]
+<!--affiche_milieu-->
+
+[(#ENV{email_confirm}|oui)
+#BOITE_OUVRIR{'','notice'}<p><:form_auteur_envoi_mail_confirmation{email=#ENV{email_confirm}}:></p>#BOITE_FERMER
+]
+[(#ENV{email_modif}|oui)
+#BOITE_OUVRIR{'','success'}<p><:form_auteur_email_modifie:></p>#BOITE_FERMER
+]
+
+#PIPELINE{afficher_complement_objet,#ARRAY{args,#ARRAY{type,auteur,id,#ID_AUTEUR},data,'<div class="nettoyeur"></div>'}}
+
+#SET{enfants,''}
+[(#PIPELINE{affiche_enfants,[(#ARRAY{args,#ARRAY{exec,#ENV**{exec},objet,auteur,id_objet,#ID_AUTEUR},data,#GET{enfants}})]})]
+
+[(#ENV{id_auteur}|intval|oui)
+
+	#SET{statuts,#SESSION{statut}|statuts_articles_visibles}
+	[(#ID_AUTEUR|=={#SESSION{id_auteur}}|oui) #SET{statuts,''}]
+	[(#PIPELINE{affiche_auteurs_interventions,#ARRAY{args,#ARRAY{id_auteur,#ID_AUTEUR},data,#INCLURE{fond=prive/objets/liste/articles,id_auteur,statut=#GET{statuts},par=date,titre=<:info_articles_auteur:>,env,ajax}}})]
+]
+
+[(#CONST{_AJAX}|oui)
+	<script type="text/javascript">/*<!\[CDATA\[*/reloadExecPage('#ENV{exec}','#navigation,#extra');/*\]\]>*/</script>
+]
+</BOUCLE_auteur>
+[(#ENV**{exec}|=={auteur_edit}|?{#INCLURE{fond=prive/squelettes/contenu/auteur_edit,env,retourajax=oui},#REM|sinon_interdire_acces{'',<:info_aucun_auteur:>}})]
+<//B_auteur>

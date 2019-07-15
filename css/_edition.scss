@@ -51,3 +51,22 @@
 .editer_identification .alert {
 	margin: 0 1rem;
 }
+
+.card-objet {
+	.champ {
+		font-size: 80%;
+	    font-weight: 400;
+	    color: $gray-600!important;
+		div {
+			display: inline;
+		}
+		&.vide {
+			display: none;
+		}
+	}
+}
+.card-auteur {
+	.contenu_nom {
+		display: none;
+	}
+}
