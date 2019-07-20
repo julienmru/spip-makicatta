@@ -1,0 +1,35 @@
+#SET{groupes_vus,'0'}
+[(#SET{_MAX_MOTS_LISTE,[(#VAL{_MAX_MOTS_LISTE}|defined|?{#CONST{_MAX_MOTS_LISTE},50})]})]
+#SET{actuels,#ENV{objet_source}|lister_objets_lies{#ENV{objet},#ENV{id_objet},#ENV{_objet_lien}}}
+<B_groupes>
+	<BOUCLE_groupes(GROUPES_MOTS){tables_liees==#ENV{objet}|table_objet}{par titre}
+		><BOUCLE_compte(MOTS){id_groupe} />#SET{total,#TOTAL_BOUCLE}<//B_compte>
+		[(#SET{autoriser,#GET{total}|!={0}|et{#AUTORISER{afficherselecteurmots,groupemots,#ID_GROUPE,'',#ARRAY{objet,#ENV{objet},id_objet,#ENV{id_objet},comite,#COMITE,minirezo,#MINIREZO}}}})]
+			<div class="form-group">
+				<label for="modifier_lien-groupe#ID_GROUPE" class="control-label">
+					#TITRE
+				</label>
+				<div class="input-group">
+					<select name="modifier_lien[]"[ (#ENV{editable}|non)disabled] id="modifier_lien-groupe#ID_GROUPE" multiple class="form-control">
+					<BOUCLE_mots(MOTS){id_groupe}{par num titre, multi titre}>
+						#SET{value,mot-#ID_MOT-#OBJET-#ID_OBJET}
+						#SET{selected,''}
+						[(#ID_MOT|in_any{#GET{actuels}}|oui)#SET{selected,' '}]
+						<option value="#GET{value}"[(#GET{selected}|oui)selected="selected"]>#TITRE</option>
+					</BOUCLE_mots>
+					</select>
+					[(#AUTORISER{creer,#ENV{objet_source}}|oui)
+					<span class="input-group-btn">
+						<a href="[(#REM|generer_url_ecrire_entite_edit{#ENV{objet_source}}
+										|parametre_url{associer_objet,#ENV{objet}|concat{'|',#ENV{id_objet}}}
+										|parametre_url{redirect,#SELF|parametre_url{dummy,'','&'}})]" class="btn btn-default">
+							<:bouton_ajouter:>
+						</a>
+					</span>]
+				</div>
+			</div>
+	</BOUCLE_groupes>
+[(#ENV{editable}|oui)
+	<button type="submit" class="btn btn-sm btn-primary float-right"><:bouton_modifier:></button>
+]
+</B_groupes>

@@ -6,7 +6,7 @@
 			          <BOUCLE_principale(ARTICLES){id_article}{tout}>
 			          <div class="col-md-6">
 			            <h1 class="m-0 text-dark">
-			            	<:info_modifier_titre{titre=#TITRE}:>
+			            	#TITRE
 			            </h1>
 			          </div>
 			          #SET{id_rubrique,#ID_RUBRIQUE}
@@ -15,7 +15,7 @@
 			          </B_principale>
 			          <div class="col-md-6">
 			            <h1 class="m-0 text-dark">
-			            	<:icone_ecrire_article:>
+			            	<:info_sans_titre:>
 			            </h1>
 			          </div>
 			          #SET{id_rubrique,#ENV{id_rubrique}}

@@ -15,7 +15,7 @@
 							[(#INCLURE{fond=prive/squelettes/extra/#ENV{type-page},ajax=extra,env})]
 							#SET{colonne,' '}
 						</div>]
-						<div class="[(#GET{colonne}|?{'col-md-8 col-lg-9', 'col-sm-12'})] order-first" role="contentinfo">
+						<div class="[(#GET{colonne}|?{'col-md-8 col-lg-9', 'col-sm-12'})] order-first contenu" role="contentinfo">
 							<INCLURE{fond=prive/squelettes/contenu/#ENV{type-page},ajax=contenu,env}>
 						</div>
 					</div>

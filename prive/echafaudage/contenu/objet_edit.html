@@ -28,6 +28,10 @@
 	]
 ]
 
+<div class="ajax">
+	#FORMULAIRE_EDITER_LIENS{mots,article,#ID_ARTICLE}
+</div>
+
 #SET{redirect,#ENV{redirect,#ID_OBJET|generer_url_entite{#OBJET}}}
 [(#ENV{retourajax,''}|oui)
 	#SET{redirect,'javascript:if (window.jQuery) jQuery(".entete-formulaire .retour a").followLink();'}

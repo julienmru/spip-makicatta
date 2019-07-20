@@ -1,0 +1,28 @@
+[(#SET{expanded,' '})]
+            <div class="card card-liens[ (#GET{expanded}|?{'','collapsed-card'})]">
+              <div class="card-header">
+                <h3 class="card-title">
+                  [(#ENV{objet_source}|objet_info{texte_objets}|_T)]
+                </h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fas fa-[(#GET{expanded}|?{'minus','plus'})]"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">    
+                <div class="formulaire_spip formulaire_editer formulaire_#FORM [formulaire_[(#FORM)]-(#ENV{table_source})] formulaire_#FORM-#ENV{id}[(#ENV{editable}|non)non_editable]">
+                  [<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+                  [<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+                  [(#ENV{editable}|oui)
+                  <form method='post' action='#ENV{action}'>
+                    #ACTION_FORMULAIRE]
+                    <INCLURE{fond=prive/squelettes/liens/#ENV{objet_source},env,ajax}> 
+                  [(#ENV{editable}|oui)
+                </form>]
+                </div>   
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->

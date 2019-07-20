@@ -1,8 +1,8 @@
 .formulaire_spip .reponse_formulaire, .error, .success, .notice, .information {
-	background: transparent;
-	border: none;
 	@extend .alert;
-	@extend .alert-info;
+  background: theme-color("info");
+  border-color: darken(theme-color("info"), 5%);
+  color: #fff;
     &:before {
       @extend %fa-icon;
       @extend .fas;
@@ -12,21 +12,25 @@
 }
 
 .formulaire_spip .reponse_formulaire_ok, .success {
-    @extend .alert-success;
+    background-color: theme-color("success");
+    border-color: darken(theme-color("success"), 5%);
     &:before {
       content: fa-content($fa-var-check);
     }
 }
 
 .notice {
-    @extend .alert-warning;
+    color: inherit;
+    background-color: theme-color("warning");
+    border-color: darken(theme-color("warning"), 5%);
     &:before {
       content: fa-content($fa-var-exclamation-triangle);
     }
 }
 
 .formulaire_spip .reponse_formulaire_erreur, .error {
-    @extend .alert-danger;
+    background-color: theme-color("danger");
+    border-color: darken(theme-color("danger"), 5%);
     &:before {
       content: fa-content($fa-var-ban);
     }

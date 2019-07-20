@@ -6,7 +6,11 @@
 	define('PORTE_PLUME_PUBLIC', FALSE);
 
 	
-   $GLOBALS['z_blocs_ecrire'] = ['contenu', 'navigation', 'extra', 'head', 'hierarchie', 'top', 'header'];
+	if (!isset($GLOBALS['z_blocs_ecrire'])) {
+		$GLOBALS['z_blocs_ecrire'] = ['contenu', 'navigation', 'extra', 'head', 'hierarchie', 'top'];
+	}
+	$GLOBALS['z_blocs_ecrire'][] = 'header';
+	$GLOBALS['z_blocs_ecrire'][] = 'liens';
 
 	function makicatta_edition_directe($objet) {
 		return (in_array($objet, ['article', 'rubrique']));

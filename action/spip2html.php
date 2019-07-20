@@ -7,17 +7,13 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 function action_spip2html_dist($arg = '') {
 
-	include_spip('inc/texte');
-
-	$result = [];
-
 	if ($GLOBALS['auteur_session']) {
-		foreach($_POST as $k => $v) {
-			$result[$k] = propre(typo($v));
-		}
+		include_spip('inc/texte');
+		header('Content-type: text/html');
+		echo liens_absolus(propre(typo($_POST['data'])));
+	} else {
+		header('Content-type: text/html');
+		echo $_POST['data'];
 	}
-
-	header('Content-type: application/json');
-	echo json_encode($result);
 
 }

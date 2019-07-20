@@ -8,6 +8,7 @@ if(_request('exec') == 'auteur') {
 }
 
 function makicatta_quete_icone($libelle) {
+	$libelle = preg_replace('/-[0-9]+\.([a-z]+)$/', '', basename($libelle));
 	$correspondance = [
 		'menu_accueil' => 'fa-home',
 		'menu_edition' => 'fa-pen-square',
@@ -21,7 +22,10 @@ function makicatta_quete_icone($libelle) {
 		'secteur' => 'fa-folder',
 		'auteurs' => 'fa-user',
 		'rubriques' => 'fa-folder',
-		'articles' => 'fa-file',
+		'articles' => 'fa-copy',
+		'article' => 'fa-file',
+		'article-new' => 'fa-file',
+		'article-edit' => 'fa-file',
 		'documents' => 'fa-photo-video',
 		'image' => 'fa-image',
 		'calendrier' => 'fa-calendar-alt',
@@ -33,6 +37,7 @@ function makicatta_quete_icone($libelle) {
 		'cache' => 'fa-database',
 		'auteur-new' => 'fa-user-plus',
 		'fiche-perso' => 'fa-id-card',
+		'information-perso' => 'fa-id-card',
 		'rubrique-del' => 'fa-folder-minus',
 		'preview' => 'fa-search',
 		'cadenas' => 'fa-lock',
@@ -44,6 +49,14 @@ function makicatta_quete_icone($libelle) {
 		'sites' => 'fa-globe',
 		'site' => 'fa-globe',
 		'site-new' => 'fa-globe',
+		'mots' => 'fa-tag',
+		'mot' => 'fa-tag',
+		'mot-new' => 'fa-tag',
+		'groupe_mots' => 'fa-tags',
+		'groupe_mots-new' => 'fa-tags',
+		'groupe_mots-edit' => 'fa-tags',
+		'ma_langue' => 'fa-language',
+		'mes_preferences' => 'fa-cogs',
 	];
 	if (isset($correspondance[$libelle])) return $correspondance[$libelle];
 	else return FALSE;
@@ -100,7 +113,7 @@ function makicatta_icone($icone_spip) {
 }
 
 function makicatta_titre_boite($titre) {
-	$icone_spip = preg_replace('/-[0-9]+\.([a-z]+)$/', '', basename(extraire_attribut(extraire_balise($titre, 'img'), 'src')));
+	$icone_spip = extraire_attribut(extraire_balise($titre, 'img'), 'src');
 	$titre_clean = strip_tags($titre);
 	return makicatta_icone($icone_spip).$titre_clean;
 }

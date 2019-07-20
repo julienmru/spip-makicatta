@@ -13,4 +13,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'rechercher_un_auteur' => 'Rechercher un auteur :',
 	'interface_basee_sur_adminlte' => 'interface d’administration basée sur [AdminLTE->https://adminlte.io/]',
 	'attention' => 'Attention !',
+	'info_permalink' => 'Permalien :',
 );

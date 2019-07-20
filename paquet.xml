@@ -16,11 +16,16 @@
 	<licence lien="https://www.gnu.org/licenses/gpl-3.0.html">GPL 3</licence>
 
 	<pipeline nom="affichage_final_prive" inclure="inc/pipelines.php" />
+	<pipeline nom="formulaire_receptionner" inclure="inc/pipelines.php" />
+	<pipeline nom="formulaire_traiter" inclure="inc/pipelines.php" />
 
 	<necessite nom="scssphp" compatibilite="[2.1.0;]" />
 
 	<lib nom="bootstrap-4.3.1" lien="https://github.com/twbs/bootstrap/archive/v4.3.1.zip" />
 	<lib nom="fontawesome" lien="https://use.fontawesome.com/releases/v5.9.0/fontawesome-free-5.9.0-web.zip" />
 	<lib nom="adminlte" lien="https://github.com/ColorlibHQ/AdminLTE/archive/v3.0.0-beta.1.zip" />
+
+	<chemin path="" />
+	<chemin path="prive" />
 
 </paquet>
