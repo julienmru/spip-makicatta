@@ -49,10 +49,9 @@
 		switch($args['args']['form']) {
 			case 'editer_liens':
 				if ($args['args']['args'][0] == 'mots' && $modifier_lien = _request('modifier_lien')) {
-					return array(
-						'message_ok' => _T('ecrire:info_modification_enregistree')
-					);
+					$args['data']['message_ok'] = _T('ecrire:info_modification_enregistree');
 				}
 				break;
 		}
+		return $args;
 	}
