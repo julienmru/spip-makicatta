@@ -4,6 +4,7 @@
 	version="0.0.0"
 	etat="dev"
 	compatibilite="[3.2.0;3.2.*]"
+	logo="makicatta-32.png"
 >	
 
 	<nom>Maki Catta</nom>
