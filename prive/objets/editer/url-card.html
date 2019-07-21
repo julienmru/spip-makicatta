@@ -7,7 +7,12 @@
               <div class="card-header">
                 <h3 class="card-title">
                   <:makicatta:info_permalink:>
-                  <a href="[(#GET{url})]">#GET{url}</a>
+                  [(#INFO_STATUT{#OBJET,#ID_OBJET}|=={publie}|oui)
+                    <a href="[(#GET{url})]">#GET{url}</a>
+                  ]
+                  [(#INFO_STATUT{#OBJET,#ID_OBJET}|=={publie}|non)
+                    #GET{url}
+                  ]
                 </h3>
 
                 <div class="card-tools">

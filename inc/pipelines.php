@@ -6,10 +6,10 @@
 		return $texte;
 	}
 
-	function makicatta_formulaire_receptionner($args, $data = null) {
-		switch($args['args']['form']) {
+	function makicatta_formulaire_receptionner($flux, $data = null) {
+		switch($flux['args']['form']) {
 			case 'editer_liens':
-				if ($args['args']['args'][0] == 'mots' && $modifier_lien = _request('modifier_lien')) {
+				if ($flux['args']['args'][0] == 'mots' && $modifier_lien = _request('modifier_lien')) {
 					// Makicatta rassemble en un champ les mots clés de l'article
 					// il faut donc reconstruire les requetes ajouter_lien et supprimer_lien
 					// utilisées par editer_liens
@@ -45,13 +45,21 @@
 				break;
 		}
 	}
-	function makicatta_formulaire_traiter($args, $data = null) {
-		switch($args['args']['form']) {
+
+	function makicatta_formulaire_traiter($flux, $data = null) {
+ 		switch($flux['args']['form']) {
 			case 'editer_liens':
-				if ($args['args']['args'][0] == 'mots' && $modifier_lien = _request('modifier_lien')) {
-					$args['data']['message_ok'] = _T('ecrire:info_modification_enregistree');
+				if ($flux['args']['args'][0] == 'mots' && $modifier_lien = _request('modifier_lien')) {
+					$flux['data']['message_ok'] = _T('ecrire:info_modification_enregistree');
 				}
 				break;
 		}
-		return $args;
+		return $flux;
+	}
+
+	function makicatta_insert_head($flux){
+		if (defined('MAKICATTA_INSERT_BOOTSTRAP') && MAKICATTA_INSERT_BOOTSTRAP && find_in_path('lib/ContentBuilder/contentbuilder/contentbuilder.min.js')) {
+			$flux .= '<link rel="stylesheet" type="text/css" href="'.timestamp(direction_css(scss_select_css('css/public.css'))).'" />';
+		}
+		return $flux;
 	}

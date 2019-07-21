@@ -18,6 +18,7 @@
 	<pipeline nom="affichage_final_prive" inclure="inc/pipelines.php" />
 	<pipeline nom="formulaire_receptionner" inclure="inc/pipelines.php" />
 	<pipeline nom="formulaire_traiter" inclure="inc/pipelines.php" />
+	<pipeline nom="insert_head" inclure="inc/pipelines.php" />
 
 	<necessite nom="scssphp" compatibilite="[2.1.0;]" />
 

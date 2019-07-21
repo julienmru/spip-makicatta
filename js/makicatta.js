@@ -23,7 +23,7 @@ function makicattaContentBuilder() {
             htmlSyntaxHighlighting: true,
             row: 'row',
             cols: ['col-md-1', 'col-md-2', 'col-md-3', 'col-md-4', 'col-md-5', 'col-md-6', 'col-md-7', 'col-md-8', 'col-md-9', 'col-md-10', 'col-md-11', 'col-md-12']            
-        });
+        })
 
         $('#btnViewSnippets').on('click', function () {
             obj.viewSnippets();
@@ -36,19 +36,24 @@ function makicattaContentBuilder() {
         $('#btnConfig').on('click', function () {
             obj.viewConfig();
         });
-    };
-	if ($textarea.val() && ($textarea.val().indexOf('<div') == -1)) {
+    }, prepareHTML = function (html) {
+    	html = html.replace('<HTML>', '', html);
+    	html = html.replace('</HTML>', '', html);
+    	html = html.replace(/src="([^:"]*)"/ig, 'src="../$1"', html);
+    	return html;
+	};
+	if ($textarea.val() && ($textarea.val().substring(0,6) != '<HTML>')) {
 		$.post( "../spip.php?action=spip2html", {data: $textarea.val()}, function(result) {
-			$('.editer_texte').append('<div class="contentbuildercontainer"><div class="row"><div class="col-md-12">'+result+'</div></div></div>');
+			$('.editer_texte').append('<div class="contentbuildercontainer">'+prepareHTML('<div class="row"><div class="col-md-12">'+result+'</div></div>')+'</div>');
 			initContentBuilder();
 		});
 	} else {
-		$('.editer_texte').append('<div class="contentbuildercontainer">'+$('#text_area').val()+'</div>');
+		$('.editer_texte').append('<div class="contentbuildercontainer">'+prepareHTML($('#text_area').val())+'</div>');
 		initContentBuilder();
 	}
 	$('.formulaire_editer').on('submit', function () {
-		var html = MCB.html();
-		if (html) $('#text_area').val(html);
+		var html = MCB.html().replace('src="../', '"src="');
+		if (html) $('#text_area').val('<HTML>'+html+'</HTML>');
 	});
 }
 
