@@ -21,6 +21,7 @@ function makicattaContentBuilder() {
             snippetPathReplace: ['assets/minimalist-blocks/', '../lib/ContentBuilder/assets/minimalist-blocks/'],
             modulePath: '../lib/ContentBuilder/assets/modules/',
             htmlSyntaxHighlighting: true,
+            rowTool: 'right',
             row: 'row',
             cols: ['col-md-1', 'col-md-2', 'col-md-3', 'col-md-4', 'col-md-5', 'col-md-6', 'col-md-7', 'col-md-8', 'col-md-9', 'col-md-10', 'col-md-11', 'col-md-12']            
         })
@@ -39,7 +40,12 @@ function makicattaContentBuilder() {
     }, prepareHTML = function (html) {
     	html = html.replace('<HTML>', '', html);
     	html = html.replace('</HTML>', '', html);
-    	html = html.replace(/src="([^:"]*)"/ig, 'src="../$1"', html);
+    	html = html.replace(/src="([^"]*)"/ig, function (match, url) {
+    		if(!url.match(/^\/\//) && !url.match(/:/)) {
+    			url = '../'+url;
+    		}
+    		return 'src="'+url+'"';
+    	});
     	return html;
 	};
 	if ($textarea.val() && ($textarea.val().substring(0,6) != '<HTML>')) {
@@ -52,7 +58,7 @@ function makicattaContentBuilder() {
 		initContentBuilder();
 	}
 	$('.formulaire_editer').on('submit', function () {
-		var html = MCB.html().replace('src="../', '"src="');
+		var html = MCB.html().replace(/src="\.\.\//g, 'src="');
 		if (html) $('#text_area').val('<HTML>'+html+'</HTML>');
 	});
 }
@@ -63,11 +69,9 @@ function makicattaToggleFullscreen() {
 		if ($div.toggleClass('edit-fullscreen').hasClass('edit-fullscreen')) {
 			$div.parents().css('z-index', 1000);
 			$div.css('z-index', 1001);
-			$div.css('overflow', 'scroll');
 		} else {
 			$div.parents().css('z-index', 'unset');
 			$div.css('z-index', 'unset');
-			$div.css('overflow', 'inherit');
 		}
 		$(this).find('i').toggleClass('fa-expand-arrows-alt').toggleClass('fa-compress-arrows-alt');
 		return false;
