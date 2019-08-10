@@ -61,6 +61,8 @@ $fa-font-path: '../../../lib/fontawesome/webfonts';
 @import "../../lib/adminlte/build/scss/elevation";
 @import "../../lib/adminlte/build/scss/colors";
 
+@import "css/mixins";
+
 @import "css/general";
 @import "css/boutons";
 @import "css/liste-objets";

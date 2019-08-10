@@ -1,0 +1,62 @@
+@mixin button($background: $gray-100, $border: #ddd, $hover-background: darken($background, 7.5%), $hover-border: darken($border, 10%), $active-background: darken($background, 10%), $active-border: darken($border, 12.5%)) {
+
+	  display: inline-block;
+	  font-family: $btn-font-family;
+	  font-weight: $btn-font-weight;
+	  color: color-yiq($background);
+	  @include gradient-bg($background);
+	  text-align: center;
+	  vertical-align: middle;
+	  user-select: none;
+	  border: $btn-border-width solid $border;
+	  @include box-shadow($btn-box-shadow);
+	  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius);
+	  @include transition($btn-transition);
+
+	  @include hover {
+	    color: color-yiq($hover-background);
+	    @include gradient-bg($hover-background);
+	    border-color: $hover-border;
+	    text-decoration: none;
+	  }
+
+	  &:focus,
+	  &.focus {
+	    outline: 0;
+	    box-shadow: $btn-focus-box-shadow;
+	  }
+
+	  // Disabled comes first so active can properly restyle
+	  &.disabled,
+	  &:disabled {
+	    opacity: $btn-disabled-opacity;
+	    @include box-shadow(none);
+	  }
+
+	  &:not(:disabled):not(.disabled):active,
+	  &:not(:disabled):not(.disabled).active {
+	    @include box-shadow($btn-active-box-shadow);
+
+	    &:focus {
+	      @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+	    }
+	  }
+
+	// Future-proof disabling of clicks on `<a>` elements
+	&.disabled,
+	fieldset:disabled a.btn {
+	  pointer-events: none;
+	}
+}
+
+@mixin icon($fa-var, $padding: false) {
+	&:before {
+		@include fa-icon;
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 900;
+		content: fa-content($fa-var);
+		@if $padding {
+			padding: $padding;
+		}
+	}
+}

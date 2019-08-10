@@ -1,20 +1,14 @@
-.formulaire_spip .submit, .formulaire_spip .reset, .formulaire_spip .button,
-.bouton_action_post .submit, #pave_selection input[type=submit]
-{
-  @extend .btn;
-}
-
 .formulaire_spip .reset, .formulaire_spip .button, .bouton_action_post .submit {
-  @extend .btn-default;
+  @include button;
 }
 
 
 .formulaire_spip .submit {
-  @extend .btn-primary;
+  @include button($primary, $primary);
 }
 
 .formulaire_spip .supprimer, .formulaire_spip .delete, .urls .bouton_action_post .submit{
-  @extend .btn-danger;
+  @include button($danger, $danger);
 }
 
 .bg-light .card-footer a {
@@ -22,8 +16,8 @@
 }
 
 #pave_selection input[type=submit] {
-  @extend .btn-primary;
-  @extend .btn-sm;
+  @include button($primary, $primary);
+  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
 }
 
 .ico-edit, .ico-add, .ico-new, .ico-del {

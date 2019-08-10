@@ -3,37 +3,26 @@
   background: theme-color("info");
   border-color: darken(theme-color("info"), 5%);
   color: #fff;
-    &:before {
-      @extend %fa-icon;
-      @extend .fas;
-      content: fa-content($fa-var-info);
-      padding-right: 1rem;
-    }
+  @include icon($fa-var-info, 0 1rem 0 0);
 }
 
 .formulaire_spip .reponse_formulaire_ok, .success {
     background-color: theme-color("success");
     border-color: darken(theme-color("success"), 5%);
-    &:before {
-      content: fa-content($fa-var-check);
-    }
+    @include icon($fa-var-check);
 }
 
 .notice {
     color: inherit;
     background-color: theme-color("warning");
     border-color: darken(theme-color("warning"), 5%);
-    &:before {
-      content: fa-content($fa-var-exclamation-triangle);
-    }
+    @include icon($fa-var-exclamation-triangle);
 }
 
 .formulaire_spip .reponse_formulaire_erreur, .error {
     background-color: theme-color("danger");
     border-color: darken(theme-color("danger"), 5%);
-    &:before {
-      content: fa-content($fa-var-ban);
-    }
+    @include icon($fa-var-ban);
 }
 
 .formulaire_spip .editer {

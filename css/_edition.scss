@@ -80,12 +80,7 @@
 		background: none;
 		padding: 0;
 		display: inline-block;
-		&:before {
-	      @extend %fa-icon;
-	      @extend .fas;
-	      content: fa-content($fa-var-link);
-	      padding-right: 0.5rem;
-		}
+		@include icon($fa-var-link, 0 0.5rem 0 0)
 		.edit {
 			padding-left: 0.5rem;
 		}

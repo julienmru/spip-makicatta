@@ -42,17 +42,19 @@
                 padding: 0.25rem;
             }
         }
-        tbody tr.row_even {
-            background: #f2f2f2;
+        tbody {
+            tr.row_even {
+                background: #f2f2f2;
+            }
+            .id {
+                a {
+                    @include button();
+                    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
+                }
+            }
         }
         .date, .trad {
             white-space: nowrap;
-        }
-        .id {
-            a {
-            	@extend .btn;
-            	@extend .btn-default;
-            }
         }
     }
     .pagination-container {
