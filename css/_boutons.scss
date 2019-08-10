@@ -25,3 +25,34 @@
   @extend .btn-primary;
   @extend .btn-sm;
 }
+
+.ico-edit, .ico-add, .ico-new, .ico-del {
+	position: relative;
+	&:after {
+		position: absolute;
+		top: 25%;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		text-align: center;
+		content: "\f067";
+		font-size: 50%;
+		color: #fff;
+	}
+}
+
+.ico-edit:after {
+	content: "\f304";
+}
+
+.ico-del:after {
+	content: "\f068";
+}
+
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+	.ico-edit:after, .ico-add:after, .ico-new:after, .ico-del:after {
+		color: $value;
+	}
+  }
+}

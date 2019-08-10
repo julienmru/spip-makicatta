@@ -114,6 +114,11 @@ function boite_ouvrir($titre, $class = '', $head_class = '', $id = '') {
 	if (test_espace_prive() and strlen($titre) and strpos($titre, '<h') === false) {
 		$titre = "<h3>$titre</h3>";
 	}
+  if ($bouton = extraire_balise($titre, 'a')) {
+    $titre = str_replace($bouton, '', $titre);
+    if (trim(strip_tags($bouton)) == '') $bouton = ''; // supprime les boutons où il n'y a qu'une icône, typiquement l'icône info
+    else $bouton = inserer_attribut($bouton, 'class', 'btn btn-primary');
+  }
   $titre = makicatta_titre_boite($titre);
   $titre = trim($titre);
   if ($class == 'compagnon') {
@@ -125,7 +130,7 @@ function boite_ouvrir($titre, $class = '', $head_class = '', $id = '') {
     (($titre) ? '<div class="card-header d-flex p-0">
                   <h3 class="card-title p-3">
                     '.$titre.'
-                  </h3>
+                  </h3>'.(($bouton) ? '<div class="card-tools">'.$bouton.'</div>' : '').'
                 </div><!-- /.card-header -->' : '').
                 '<div class="card-body">';
   }

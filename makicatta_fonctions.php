@@ -175,7 +175,11 @@ function makicatta_reorganise_menu($menu) {
 function makicatta_icone($icone_spip) {
 	if (!$icone_spip) return '';
 	$icone_makicatta = makicatta_quete_icone($icone_spip);
-	return (($icone_makicatta) ? '<i class="fas '.$icone_makicatta.' mr-1"></i>' : ((defined('MAKICATTA_DEBUG_ICONES') && MAKICATTA_DEBUG_ICONES) ? '<i class="fas fa-bug mr-1" title="'.$icone_spip.'"></i>' : '')) . supprimer_tags($titre);
+	if (defined('MAKICATTA_DEBUG_ICONES')) {
+		return (($icone_makicatta) ? '<i class="fas '.$icone_makicatta.' mr-1" title="'.$icone_spip.'"></i>' : '<i class="fas fa-bug mr-1" title="'.$icone_spip.'"></i>');
+	} else {
+		return (($icone_makicatta) ? '<i class="fas '.$icone_makicatta.' mr-1"></i>' : '');
+	}
 }
 
 function makicatta_titre_boite($titre) {

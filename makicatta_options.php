@@ -13,5 +13,5 @@
 	$GLOBALS['z_blocs_ecrire'][] = 'liens';
 
 	function makicatta_edition_directe($objet) {
-		return (in_array($objet, ['article', 'rubrique']));
+		return false && (in_array($objet, ['article', 'rubrique']));
 	}
