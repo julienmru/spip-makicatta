@@ -51,7 +51,7 @@ function formulaires_recherche_ecrire_charger_dist($action = '', $class = '', $t
 			'lang' => $lang,
 			'class' => $class,
 			'type' => $type,
-			'label' => _T($label),
+			'label' => $label ? _T($label) : '',
 			'_id_champ' => 'rechercher_' . substr(md5($action . $class), 0, 4),
 		);
 }
