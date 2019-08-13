@@ -5,9 +5,10 @@
 	etat="dev"
 	compatibilite="[3.2.0;3.2.*]"
 	logo="makicatta-32.png"
+	documentation="https://contrib.spip.net/makicatta"
 >	
 
-	<nom>Maki Catta</nom>
+	<nom>Makicatta</nom>
 
 	<auteur lien="https://www.cari.agency">Julien Tessier, Agence Cari</auteur>
 	<credit lien="https://www.adminlte.io">AdminLTE</credit>

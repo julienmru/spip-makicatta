@@ -6,6 +6,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 }
 
 $GLOBALS[$GLOBALS['idx_lang']] = array(
-	'makicatta_titre' => 'Maki Catta',
+	'makicatta_titre' => 'Makicatta',
 	'makicatta_description' => 'Interface d’administration basée sur [AdminLTE->https://www.adminlte.io].',
 );
