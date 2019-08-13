@@ -59,7 +59,7 @@
 
 	function makicatta_insert_head($flux){
 		if (defined('MAKICATTA_INSERT_BOOTSTRAP') && MAKICATTA_INSERT_BOOTSTRAP && find_in_path('lib/ContentBuilder/contentbuilder/contentbuilder.min.js')) {
-			$flux .= '<link rel="stylesheet" type="text/css" href="'.timestamp(direction_css(scss_select_css('css/public.css'))).'" />';
+			$flux .= '<link rel="stylesheet" type="text/css" href="'.timestamp(direction_css(scss_select_css('css/makicatta-public.css'))).'" />';
 		}
 		return $flux;
 	}
