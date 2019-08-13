@@ -1,5 +1,15 @@
 <?php
 
+// nos filtres pour les icones
+
+function filtre_icone($lien, $texte, $fond, $align = "", $fonction = "", $class = "", $javascript = "") {
+	return makicatta_icone_base($lien, $texte, $fond, $fonction, "verticale $align $class", $javascript);
+}
+
+function filtre_icone_horizontale($lien, $texte, $fond, $fonction = "", $class = "", $javascript = "") {
+	return makicatta_icone_base($lien, $texte, $fond, $fonction, "horizontale $class", $javascript);
+}
+
 // remplacement de prepare_icone_base (source : inc/filtres)
 
 function makicatta_prepare_icone_base($type, $lien, $texte, $fond, $fonction = "", $class = "", $javascript = "") {
@@ -65,12 +75,4 @@ function makicatta_prepare_icone_base($type, $lien, $texte, $fond, $fonction = "
 
 function makicatta_icone_base($lien, $texte, $fond, $fonction = "", $class = "", $javascript = "") {
 	return makicatta_prepare_icone_base('lien', $lien, $texte, $fond, $fonction, $class, $javascript);
-}
-
-function filtre_icone($lien, $texte, $fond, $align = "", $fonction = "", $class = "", $javascript = "") {
-	return makicatta_icone_base($lien, $texte, $fond, $fonction, "verticale $align $class", $javascript);
-}
-
-function filtre_icone_horizontale($lien, $texte, $fond, $fonction = "", $class = "", $javascript = "") {
-	return makicatta_icone_base($lien, $texte, $fond, $fonction, "horizontale $class", $javascript);
 }

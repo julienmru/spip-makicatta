@@ -140,24 +140,24 @@ function makicatta_reorganise_menu($menu) {
 					if ($key == 'articles') {
 						$sousmenu[$key]->sousmenu['articles_tous'] = new Bouton(
 								'',  // icone
-								_T('info_articles_tous'),  // titre
+								'info_articles_tous',  // titre
 								$key,
 								null
 							);
 						$sousmenu[$key]->sousmenu['articles_miens'] = new Bouton(
 								'',  // icone
-								_T('info_articles_miens'),  // titre
+								'info_articles_miens',  // titre
 								$key,
 								'id_auteur='.$GLOBALS['auteur_session']['id_auteur']
 							);
 						$sousmenu[$key]->sousmenu['article_add'] = new Bouton(
 								'',  // icone
-								_T('bouton_ajouter'),  // titre
+								'bouton_ajouter',  // titre
 								'article_edit',
 								'new=oui'
 							);
 					} elseif ($key == 'documents') {
-						$sousmenu[$key]->libelle = _T('medias:documents');
+						$sousmenu[$key]->libelle = 'medias:documents';
 					}
 					unset($bouton->sousmenu[$key]);
 				}
