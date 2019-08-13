@@ -3,6 +3,7 @@
 
 include_spip('inc/bandeau');
 include_spip('inc/presentation_mini');
+include_spip('inc/filtres_makicatta');
 if(_request('exec') == 'auteur') {
 	include_spip('prive/objets/liste/auteurs_fonctions');
 }
