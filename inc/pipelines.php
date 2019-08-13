@@ -69,7 +69,7 @@
 		$racine = realpath(_DIR_RACINE);
 		if (strpos($me, $racine) === 0) {
 			$depth = substr_count(substr($me, strlen($racine)), DIRECTORY_SEPARATOR);
-			$path = str_repeat('..'.DIRECTORY_SEPARATOR, $depth);
+			$path = str_repeat('../', $depth);
 		} else {
 			$path = '../../../';
 		}
