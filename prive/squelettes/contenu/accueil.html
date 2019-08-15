@@ -1,3 +1,21 @@
+[(#REM) affiche l'info de mise à jour pour les users qui ont le droit de metttre à jour]
+<BOUCLE_plugins(PAQUETS plugins){tout}{prefixe=MAKICATTA}{actif=oui}{0,#GET{autoriser_plugins_ajouter}|oui|?{0,1}}>
+[(#MAJ_VERSION|oui)
+            <div class="info-box">
+              <span class="info-box-icon bg-warning"><i class="fas fa-sync-alt"></i></span>
+
+              <div class="info-box-content">
+                <strong class="info-box-text">#NOM</strong>
+                <span class="info-box-text"><:svp:plugin_info_up{version=#MAJ_VERSION}:>
+                	<a href="#URL_ECRIRE{admin_plugin}" class="btn btn-warning btn-sm"><:icone_admin_plugin:></a>
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+]
+</BOUCLE_plugins>
+
+
 #SET{recentwhere,''}
 <BOUCLE_haspostdate(ARTICLES){statut=publie}{0,1}>
 [(#CONFIG{post_dates}|=={non}|et{#SESSION{statut}|=={0minirezo}|oui})
