@@ -88,7 +88,7 @@ function makicattaSelect2() {
 	$('.navigation .editer select').select2({
 		minimumResultsForSearch: 10
 	});
-	$('.selecteur_parent, .contenu .editer select').select2();
+	$('.selecteur_parent, .contenu .editer select, #selection_statut').select2();
 }
 
 function makicattaTokenfield() {

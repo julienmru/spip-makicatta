@@ -1,0 +1,52 @@
+<script type="text/javascript">
+	jQuery(function($){
+		$('body.plan #contenu #mytree_actions .pliage').html(
+			"<a href=\"#\" onClick=\"jQuery('#racine').jstree('open_all'); return false;\"><:lien_tout_deplier:></a> | " +
+			"<a href=\"#\" onClick=\"jQuery('#racine').jstree('close_all'); return false;\"><:lien_tout_replier:></a>"
+			);
+	});
+</script>
+
+<div id="mytree_actions">
+	<div class="row">
+		<div class="col-md-6 col-lg-3 mb-3">
+			<div class="input-group">
+				<input class="form-control" type="search" id="mytree_search" placeholder="<:info_rechercher|attribut_html:>" aria-label="<:info_rechercher|attribut_html:>" name="recherche">
+			</div>
+		</div>
+		<div class="col-md-6 mb-3">
+			<span class='pliage'>
+				[(#REM) Sera enlevé par le javascript ]
+				[(#ENV{lister}|non)
+				<a href="[(#SELF|parametre_url{lister,tout})]" class="btn btn-primary"><:info_tout_afficher:></a>
+				]
+			</span>
+
+			[(#SET{statut,[(#ENV{statuts}|?{[(#ENV{statuts}|explode{-}|end)],#NULL})]})]
+			[(#SET{objet,[(#ENV{statuts}|?{[(#ENV{statuts}|explode{-}|reset)],#NULL})]})]
+
+			<span class='statut #GET{objet}'>
+				<B_objets_statuts>
+				<form method="GET" action="#SELF" onChange="this.submit(); return true;">
+					[(#SELF|parametre_url{statuts,''}|form_hidden)]
+					<select name="statuts" id="selection_statut">
+						<option value=""[(#ENV{statuts}|non) selected="selected"]><:plan:tous_les_statuts:></option>
+						<BOUCLE_objets_statuts(DATA){source table, #REM|plan_lister_objets_rubrique_statuts_auteur}>
+						<optgroup label="[(#CLE|objet_info{texte_objets}|_T)]" class="#CLE">
+							<BOUCLE_statuts(DATA){source table, #VALEUR}>
+							[(#SET{class,[(#_objets_statuts:CLE)]-#CLE})]
+							<option class="#GET{class}" value="#GET{class}"[(#ENV{statuts}|=={#GET{class}}|oui) selected="selected"]>#TITRE</option>
+							</BOUCLE_statuts>
+						</optgroup>
+						</BOUCLE_objets_statuts>
+					</select>
+				</form>
+				</B_objets_statuts>
+			</span>
+		</div>
+	</div>
+</div>
+
+#BOITE_OUVRIR{'', simple}
+<INCLURE{fond=prive/squelettes/inclure/plan, statut=#GET{statut}, objet=#GET{objet}, lister, ajax=plan}>
+#BOITE_FERMER

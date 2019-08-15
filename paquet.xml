@@ -1,7 +1,7 @@
 <paquet
 	prefix="makicatta"
 	categorie="edition"
-	version="0.1.20191013"
+	version="0.2.20190815"
 	etat="dev"
 	compatibilite="[3.2.0;3.2.*]"
 	logo="makicatta-32.png"

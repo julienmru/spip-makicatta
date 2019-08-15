@@ -24,6 +24,7 @@ function makicatta_quete_icone($libelle) {
 		'menu_squelette' => 'fa-copy',
 		'menu_administration' => 'fa-heartbeat',
 		'menu_configuration' => 'fa-wrench',
+		'menu_developpement' => 'fa-hammer',
 		'agenda' => 'fa-calendar-alt',
 		'annonce' => 'fa-bullhorn',
 		'article' => 'fa-file',
@@ -158,6 +159,15 @@ function makicatta_reorganise_menu($menu) {
 							);
 					} elseif ($key == 'documents') {
 						$sousmenu[$key]->libelle = 'medias:documents';
+					} elseif ($key == 'rubriques') {
+						foreach(sql_allfetsel('id_rubrique, titre', 'spip_rubriques', 'id_parent = 0', '0+titre, titre') as $rubrique) {
+							$sousmenu[$key]->sousmenu['rubrique_'.$rubrique['id_rubrique']] = new Bouton(
+									'',  // icone
+									$rubrique['titre'].'*',  // titre arec une étoile à la fin pour pas que ça soit traduit
+									'rubrique',
+									'id_rubrique='.$rubrique['id_rubrique']
+								);
+						}
 					}
 					unset($bouton->sousmenu[$key]);
 				}

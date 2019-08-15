@@ -3,6 +3,7 @@
 	function makicatta_affichage_final_prive($texte) {
 		$texte = str_replace("<p class='pagination'><!-- pagination -->", '', $texte);
 		$texte = str_replace("<!-- /pagination --></p>", '', $texte);
+		$texte = str_replace("<table class='spip'>", "<table class='table table-striped'>", $texte);
 		return $texte;
 	}
 

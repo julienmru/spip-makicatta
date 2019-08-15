@@ -51,9 +51,8 @@
 
 @mixin icon($fa-var, $padding: false) {
 	&:before {
-		@include fa-icon;
-		font-family: 'Font Awesome 5 Free';
-		font-weight: 900;
+		@extend %fa-icon;
+		@extend .fas;
 		content: fa-content($fa-var);
 		@if $padding {
 			padding: $padding;

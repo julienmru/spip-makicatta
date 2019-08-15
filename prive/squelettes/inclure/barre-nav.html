@@ -10,7 +10,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#URL_ECRIRE{plan}" class="nav-link"><:info_tout_site:></a>
+        <a href="#URL_ECRIRE{plan}" class="nav-link"><:plan_site:></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#URL_SITE_SPIP" class="nav-link"><:icone_visiter_site:></a>
@@ -92,9 +92,11 @@
             <B_sous>
             <ul class="nav nav-treeview">
               <BOUCLE_sous(DATA){source tableau, #SOUSMENU}>
+              [(#REM) si le libelle a une étoile à la fin alors ce n'est pas une chaine traduisibble]
+              #SET{libelle,#LIBELLE|substr{-1}|=={*}|?{#LIBELLE|substr{0,-1},#LIBELLE|_T}}
               [<li class="nav-item">
-                <a href="[(#VALEUR{url}|sinon{#CLE}|bandeau_creer_url{#VALEUR{urlArg},#GET{contexte}})]"[ title="(#LIBELLE|_T|makicatta_coupera{30, '…'})"] class="nav-link">
-                  <p>(#LIBELLE|_T|couper{30, '…'})</p>
+                <a href="[(#VALEUR{url}|sinon{#CLE}|bandeau_creer_url{#VALEUR{urlArg},#GET{contexte}})]"[ title="(#GET{libelle}|makicatta_coupera{30, '…'})"] class="nav-link">
+                  <p>(#GET{libelle}|couper{30, '…'})</p>
                 </a>
               </li>]
               </BOUCLE_sous>

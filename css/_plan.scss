@@ -1,0 +1,65 @@
+.plan {
+    @import "css/vendors/jstree-bootstrap-theme";
+    .jstree-default {
+        strong {
+            font-weight: 300;
+        }
+        .jstree-node {
+            line-height: 2;
+        }
+        .jstree-anchor {
+            color: rgba(0,0,0,0.5);
+            .jstree-icon {
+                background: transparent;
+                width: auto;
+                height: auto;
+                margin: 0 0.5rem 0 0;
+                color: $gray-700;
+                width: 1rem;
+                text-align: center;
+                &.article {
+                    @include icon($fa-var-file);
+                }
+                &.rubrique {
+                    @include icon($fa-var-folder);
+                }
+                &.site {
+                    @include icon($fa-var-globe);
+                }
+                &.breve {
+                    @include icon($fa-var-newspaper);
+                }
+            }
+        }
+        .jstree-clicked, .jstree-hovered {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+        .jstree-hovered {
+            color: rgba(0,0,0,0.7);
+        }
+        .jstree-search {
+            font-style: normal;
+        }
+    }
+    .jstree-container-ul {
+        overflow: hidden;
+    }
+
+    #mytree_actions { margin-bottom:0; margin-top:0; }
+    #mytree_actions input,
+    #mytree_actions .pliage { margin-right:0; }
+    #mytree_actions .statut {
+        background: transparent;
+        display:inline-block;
+    }
+}
+
+#vakata-dnd {
+    backdrop-filter: blur(1px);
+    background: rgba(255, 255, 255, 0.5);
+    img {
+        display: none;
+    }
+}
