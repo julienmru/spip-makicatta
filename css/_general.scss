@@ -2,6 +2,11 @@ body {
 	background: $main-bg;
 }
 
+/* reset default width set in layout.css */
+body, body.large {
+	min-width: 0;
+}
+
 .aide {
 	display: none;
 }
@@ -70,5 +75,14 @@ h1.grostitre {
 .puce_objet_popup { 
 	img {
 		box-sizing: content-box;
+	}
+}
+
+table.table {
+	background: #fff;
+	thead {
+		th {
+			background: #fff;
+		}
 	}
 }

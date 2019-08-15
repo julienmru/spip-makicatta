@@ -16,7 +16,7 @@ var stat = [(#CONFIG{activer_statistiques}|=={non}|?{0,1})];
 var confirm_changer_statut = '<:confirm_changer_statut|html2unicode|addslashes|unicode_to_javascript:>';
 var error_on_ajaxform='<:erreur_technique_ajaxform|html2unicode|addslashes|unicode_to_javascript:>';
 /*]]>*/</script>
-<meta name="viewport" content="width=device-width" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 [<link rel="stylesheet" type="text/css" href="(#VAL{reset.css}|find_in_theme|timestamp|url_absolue)" id="csspriveereset" />]
 #PIPELINE{header_prive_css,''}
 [<!--
@@ -52,6 +52,7 @@ var error_on_ajaxform='<:erreur_technique_ajaxform|html2unicode|addslashes|unico
 [<link rel="stylesheet" type="text/css" href="(#CSS{css/makicatta-prive.css}|timestamp|url_absolue)" />]
 [<script type="text/javascript" src="(#CHEMIN{js/makicatta.js}|timestamp|url_absolue)"></script>]
 [(#REM) AdminLTE JS]
+[<script type="text/javascript" src="(#CHEMIN{lib/bootstrap-4.3.1/dist/js/bootstrap.bundle.min.js}|timestamp)"></script>]
 [<script type="text/javascript" src="(#CHEMIN{lib/adminlte/dist/js/adminlte.min.js}|timestamp)"></script>]
 [<script type="text/javascript" src="(#CHEMIN{lib/adminlte/plugins/select2/js/select2.full.min.js}|timestamp|url_absolue)"></script>]
 [
