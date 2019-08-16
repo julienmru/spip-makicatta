@@ -16,7 +16,7 @@ function makicatta_quete_icone($libelle) {
 	} else {
 		$action = '';
 	}
-	$correspondance = [
+	$correspondance = pipeline('makicatta_icones', [
 		'menu_accueil' => 'fa-home',
 		'menu_edition' => 'fa-pen-square',
 		'menu_publication' => 'fa-check-square',
@@ -125,7 +125,7 @@ function makicatta_quete_icone($libelle) {
 		'warning' => 'fa-exclamation-triangle',
 		'zoomin' => 'fa-search-plus',
 		'zoomout' => 'fa-search-minus',
-	];
+	]);
 	if (isset($correspondance[$libelle])) return $correspondance[$libelle].(($action) ? ' ico-'.$action : '');
 	else return FALSE;
 }
