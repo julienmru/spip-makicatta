@@ -78,6 +78,10 @@ h1.grostitre {
 	}
 }
 
+.markItUp .markItUpContainer.fullscreen {
+	z-index: $zindex-main-sidebar+1;
+}
+
 table.table {
 	background: #fff;
 	thead {

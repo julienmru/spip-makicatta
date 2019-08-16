@@ -5,8 +5,8 @@ $(function () {
 	});
 	makicattaSelect2(); onAjaxLoad(makicattaSelect2);
 	//makicattaTokenfield();
-	makicattaToggleFullscreen(); //onAjaxLoad(makicattaToggleFullscreen);
 	if (typeof $.contentbuilder == 'function' && $('#text_area').length) {
+		makicattaToggleFullscreen(); //onAjaxLoad(makicattaToggleFullscreen);
 		makicattaContentBuilder(); // onAjaxLoad(makicattaContentBuilder);
 	}
 });
@@ -89,6 +89,7 @@ function makicattaSelect2() {
 		minimumResultsForSearch: 10
 	});
 	$('.selecteur_parent, .contenu .editer select, #selection_statut').select2();
+	$('select').select2();
 }
 
 function makicattaTokenfield() {

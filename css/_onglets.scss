@@ -1,0 +1,43 @@
+.onglets_simple {
+    border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color !important;
+    ul {
+    	padding: 0 1rem;
+        li {
+        	margin-bottom: -$nav-tabs-border-width;
+        	a, span.off, strong {
+        	  opacity: 1;
+			  margin: 0 !important;
+			  display: block;
+			  padding: $nav-link-padding-y $nav-link-padding-x !important;
+
+			  @include hover-focus {
+			    text-decoration: none;
+			  }
+
+			  background: transparent !important;
+			  border-color: transparent !important;
+        	}
+        	a:hover {
+      			border-color: $nav-tabs-link-hover-border-color !important;
+        	}
+        	// Disabled state lightens text
+        	span.off {
+			    color: $nav-link-disabled-color;
+			    pointer-events: none;
+			    cursor: default;
+        	}
+        	strong {
+			    color: $nav-tabs-link-active-color;
+			    background-color: $nav-tabs-link-active-bg;
+			    border-color: $gray-300 $gray-300 $main-bg !important;
+			    font-weight: normal;
+        	}
+        }
+    }
+}
+
+.card, .formulaire_spip {
+	strong {
+		border-color: $nav-tabs-link-active-border-color !important;
+	}
+}
