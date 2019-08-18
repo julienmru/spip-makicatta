@@ -18,7 +18,7 @@
                   [(#ENV{editable}|oui)
                   <form method='post' action='#ENV{action}'>
                     #ACTION_FORMULAIRE]
-                    <INCLURE{fond=prive/squelettes/liens/#ENV{objet_source},env,ajax}> 
+                    <INCLURE{fond=(#VAL{prive/squelettes/liens/}|concat{#ENV{objet_source}}|makicatta_trouve_squelette),env,ajax}>
                   [(#ENV{editable}|oui)
                 </form>]
                 </div>   

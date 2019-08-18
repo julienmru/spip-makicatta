@@ -204,6 +204,11 @@ function makicatta_coupera($texte, $suffixe) {
 	else return FALSE;
 }
 
+function makicatta_trouve_squelette($chemin) {
+	if (is_file(__DIR__.'/'.$chemin.'.html')) return $chemin;
+	else return dirname($chemin).'/dist';
+}
+
 function filtre_afficher_plus_info($lien, $titre = "+", $titre_lien = "") {
 	return '';
 
