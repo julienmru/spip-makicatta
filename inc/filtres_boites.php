@@ -117,7 +117,7 @@ function boite_ouvrir($titre, $class = '', $head_class = '', $id = '') {
   if ($bouton = extraire_balise($titre, 'a')) {
     $titre = str_replace($bouton, '', $titre);
     if (trim(strip_tags($bouton)) == '') $bouton = ''; // supprime les boutons où il n'y a qu'une icône, typiquement l'icône info
-    else $bouton = inserer_attribut($bouton, 'class', 'btn btn-primary');
+    else $bouton = vider_attribut(strip_tags(inserer_attribut($bouton, 'class', 'btn btn-primary'), '<a>'), 'title');
   }
   $titre = makicatta_titre_boite($titre);
   $titre = trim($titre);
