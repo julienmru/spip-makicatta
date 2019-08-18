@@ -4,6 +4,18 @@
 		$texte = str_replace("<p class='pagination'><!-- pagination -->", '', $texte);
 		$texte = str_replace("<!-- /pagination --></p>", '', $texte);
 		$texte = str_replace("<table class='spip'>", "<table class='table table-striped'>", $texte);
+
+		// bouge le titre au bon endroit (inspiré de affichage_final_prive_title_auto)
+		if (($p = strpos($texte, '<!--h1-->')) !== false
+			and
+			(preg_match(",<h1[^>]*>(.+)</h1>,Uims", $texte, $match)
+				or preg_match(",<h[23][^>]*>(.+)</h[23]>,Uims", $texte, $match))
+			and $h1 = textebrut(trim($match[1]))
+		) {
+			$texte = str_replace($match[0], '', $texte);
+			$texte = substr_replace($texte, "<h1>" . $h1 . "</h1>", $p, 9);
+		}
+
 		return $texte;
 	}
 
