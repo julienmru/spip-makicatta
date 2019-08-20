@@ -177,14 +177,14 @@ function bloc_des_raccourcis($bloc) {
 // Fonctions onglets
 // http://code.spip.net/@debut_onglet
 // @param string $sous_classe	prend la valeur second pour definir les onglet de deuxieme niveau
-function debut_onglet($classe = "barre_onglet") { $classe = str_replace("barre_onglet", '', $classe); return "<ul class='nav nav-pills ml-auto p-2 $classe'>\n"; }
+function debut_onglet($classe = "barre_onglet") { $classe = str_replace("barre_onglet", '', $classe); return "<ul class='nav nav-tabs $classe'>\n"; }
 
 // http://code.spip.net/@fin_onglet
 function fin_onglet() { return "</ul>\n"; }
 
 // http://code.spip.net/@onglet
 function onglet($texte, $lien, $onglet_ref, $onglet, $icone = "") {
-	return "<li><a class='nav-link".(($onglet == $onglet_ref) ? ' active' : '')."' href='$lien'>".makicatta_icone($icone)." $texte</a></li>\n";
+	return "<li class='nav-item'><a class='nav-link".(($onglet == $onglet_ref) ? ' active' : '')."' href='$lien'>".makicatta_icone($icone)." $texte</a></li>\n";
 }
 
 /**

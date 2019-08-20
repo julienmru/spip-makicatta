@@ -36,8 +36,14 @@
     }
 }
 
-.card, .formulaire_spip {
-	strong {
-		border-color: $nav-tabs-link-active-border-color !important;
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+	background-color: $main-bg;
+	border-color: $gray-300 $gray-300 $main-bg !important;
+}
+
+.card strong, .formulaire_spip {
+	strong, .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+		border-color-bottom: $nav-tabs-link-active-border-color !important;
+		background-color: $nav-tabs-link-active-border-color;
 	}
 }
