@@ -40,13 +40,15 @@
 							$liens_actuels = objet_trouver_liens([$objet_source => '*'], [$objet_lie => $idl]);
 							$ids_a_ajouter = $ids;
 							$ids_a_supprimer = [];
-							foreach ($liens_actuels as $lien) {
-								if (($pos = array_search($lien[$objet_source], $ids) === FALSE)) {
-									$supprimer_lien[] = $objet_source.'-'.$lien[$objet_source].'-'.$lie;
-								} else {
-									unset($ids_a_ajouter[$pos]);
-								}
-							} 
+							if (is_array($liens_actuels)) {
+								foreach ($liens_actuels as $lien) {
+									if (($pos = array_search($lien[$objet_source], $ids) === FALSE)) {
+										$supprimer_lien[] = $objet_source.'-'.$lien[$objet_source].'-'.$lie;
+									} else {
+										unset($ids_a_ajouter[$pos]);
+									}
+								} 
+							}
 							foreach($ids_a_ajouter as $id) {
 								$ajouter_lien[] = $objet_source.'-'.$id.'-'.$lie;
 							}

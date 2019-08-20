@@ -23,7 +23,7 @@
 					<span class="input-group-append">
 						<a href="[(#REM|generer_url_ecrire_entite_edit{#ENV{objet_source}}
 										|parametre_url{associer_objet,#ENV{objet}|concat{'|',#ENV{id_objet}}}
-										|parametre_url{redirect,#SELF|parametre_url{dummy,'','&'}})]" class="btn btn-default" title="<:icone_creer_mot_cle:>">
+										|parametre_url{redirect,#SELF|parametre_url{dummy,'','&'}})]" class="btn btn-sm btn-default" title="<:icone_creer_mot_cle:>">
 							<i class="fas fa-plus-square"></i> <:makicatta:bouton_creer:>
 						</a>
 					</span>]
@@ -31,6 +31,6 @@
 			</div>
 	</BOUCLE_groupes>
 [(#ENV{editable}|oui)
-	<button type="submit" class="btn btn-sm btn-primary float-right"><:bouton_modifier:></button>
+	<button type="submit" class="btn btn-primary float-right"><:bouton_enregistrer:></button>
 ]
 </B_groupes>
