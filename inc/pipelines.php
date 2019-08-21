@@ -4,6 +4,9 @@
 		$texte = str_replace("<p class='pagination'><!-- pagination -->", '', $texte);
 		$texte = str_replace("<!-- /pagination --></p>", '', $texte);
 		$texte = str_replace("<table class='spip'>", "<table class='table table-striped'>", $texte);
+		// certains codes appellement directement icone_horizontale et non le filtre, on doit donc repasser à la main
+		// cf. https://github.com/cariagency/spip-makicatta/issues/2 causé par revisions_boite_infos()
+		// dans plugins-dist/revisions/inc/revisions_pipeline.php
 		if (preg_match_all("/<span class='icone .*'>.*<\/span>/", $texte, $matches)) {
 			foreach($matches as $match) {
 				if (($img = extraire_balise($match[0], 'img')) && ($src = extraire_attribut($img, 'src'))) {
