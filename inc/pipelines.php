@@ -4,6 +4,13 @@
 		$texte = str_replace("<p class='pagination'><!-- pagination -->", '', $texte);
 		$texte = str_replace("<!-- /pagination --></p>", '', $texte);
 		$texte = str_replace("<table class='spip'>", "<table class='table table-striped'>", $texte);
+		if (preg_match_all("/<span class='icone .*'>.*<\/span>/", $texte, $matches)) {
+			foreach($matches as $match) {
+				if (($img = extraire_balise($match[0], 'img')) && ($src = extraire_attribut($img, 'src'))) {
+					$texte = str_replace($img, makicatta_icone($src), $texte);
+				}
+			}
+		}
 
 		// bouge le titre au bon endroit (inspiré de affichage_final_prive_title_auto)
 		if (($p = strpos($texte, '<!--h1-->')) !== false
