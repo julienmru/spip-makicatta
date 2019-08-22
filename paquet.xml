@@ -35,6 +35,8 @@
 	<necessite nom="ppp" compatibilite="[1.0.10;[" />
 	<necessite nom="pp_chgt_lg" compatibilite="[0.3.1;[" />
 
+	<necessite nom="php" compatibilite="[5.6.0;[" />
+
 	<lib nom="bootstrap-4.3.1" lien="https://github.com/twbs/bootstrap/archive/v4.3.1.zip" />
 	<lib nom="fontawesome" lien="https://use.fontawesome.com/releases/v5.10.1/fontawesome-free-5.10.1-web.zip" />
 	<lib nom="adminlte" lien="https://github.com/ColorlibHQ/AdminLTE/archive/v3.0.0-beta.2.zip" />
