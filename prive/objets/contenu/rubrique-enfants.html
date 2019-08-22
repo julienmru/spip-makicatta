@@ -1,13 +1,13 @@
 [(#ID_RUBRIQUE|non)
 
-	[(#INCLURE{fond=prive/objets/contenu/rubrique-enfants-rubriques, id_rubrique=0})]
+	[(#INCLURE{fond=prive/objets/contenu/rubrique-enfants-rubriques, id_rubrique=0, collapsed=oui})]
 
 ]
 
 
 [(#ID_RUBRIQUE|oui)
 
-	[(#INCLURE{fond=prive/objets/contenu/rubrique-enfants-rubriques, id_rubrique=#ID_RUBRIQUE})]
+	[(#INCLURE{fond=prive/objets/contenu/rubrique-enfants-rubriques, id_rubrique=#ID_RUBRIQUE, collapsed=oui})]
 
 	[(#REM)
 

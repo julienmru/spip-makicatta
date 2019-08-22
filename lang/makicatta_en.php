@@ -16,4 +16,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_permalink' => 'Permalink:',
 	'bouton_creer' => 'Create',
 	'bouton_choisir_un_mot_cle' => 'Choose a keyword',
+	'info_rubriques_tous' => 'All sections',
 );

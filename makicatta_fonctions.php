@@ -52,6 +52,12 @@ function makicatta_reorganise_menu($menu) {
 					} elseif ($key == 'documents') {
 						$sousmenu[$key]->libelle = 'medias:documents';
 					} elseif ($key == 'rubriques') {
+						$sousmenu[$key]->sousmenu['rubriques_tous'] = new Bouton(
+								'',  // icone
+								'makicatta:info_rubriques_tous',  // titre
+								$key,
+								null
+							);
 						foreach(sql_allfetsel('id_rubrique, titre', 'spip_rubriques', 'id_parent = 0', '0+titre, titre') as $rubrique) {
 							$sousmenu[$key]->sousmenu['rubrique_'.$rubrique['id_rubrique']] = new Bouton(
 									'',  // icone
