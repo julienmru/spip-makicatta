@@ -159,7 +159,11 @@ function gros_titre(
 	$titre,
 	$ze_logo = ''
 ) {
-	return "<h1 class = 'grostitre'>" . $ze_logo . ' ' . typo($titre) . "</h1>\n";
+	$extra = '';
+	if (_request('exec') == 'admin_plugin') {
+		$extra = recuperer_fond('prive/squelettes/inclure/configurer-attention');
+	}
+	return "<h1 class = 'grostitre'>" . $ze_logo . ' ' . typo($titre) . "</h1>\n".$extra;
 }
 
 // La boite des raccourcis

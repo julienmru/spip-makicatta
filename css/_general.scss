@@ -7,6 +7,30 @@ body, body.large {
 	min-width: 0;
 }
 
+/* improve style built with presentation_mini.php */
+
+#navigation {
+	@include media-breakpoint-up(md) {
+		margin-top: 4rem;
+	}
+}
+
+.admin_plugin {
+	#navigation {
+		@include media-breakpoint-up(md) {
+			margin-top: 4.5rem;
+		}
+	}
+}
+
+#contenu {
+	h1.grostitre {
+		margin: 15px 0;
+	}
+}
+
+/* misc styles */
+
 .aide {
 	display: none;
 }

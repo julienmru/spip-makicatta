@@ -1,5 +1,4 @@
 
-
 			<div class="content-header">
 				<div class="container-fluid">
 			        <div class="row mb-2">
@@ -8,9 +7,9 @@
 			          	#INCLURE{fond=prive/squelettes/top/#ENV{type-page},ajax=top,env}
 			          </div><!-- /.col -->
 			        </div><!-- /.row -->
+					[(#ENV{exec}|match{configurer_}|oui)
+			          	#INCLURE{fond=prive/squelettes/inclure/configurer-attention}
+					]
 				</div>
 			</div>
 
-			
-
-			

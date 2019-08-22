@@ -65,7 +65,7 @@ function fin_grand_cadre() { return "\n</div>"; }
  * @return string Code HTML
  */
 function debut_gauche() {
-	return "<div class='col-md-4 col-lg-3 navigation lat' class='lat' role='contentinfo'>\n";
+	return "<div class='col-md-4 col-lg-3 lat' id='navigation' role='contentinfo'>\n";
 }
 
 /**

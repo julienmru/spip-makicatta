@@ -62,7 +62,7 @@ function inc_commencer_page_dist(
 	. "<div class='content-wrapper'>"
 	. auteurs_recemment_connectes($GLOBALS['connect_id_auteur'])
 	. ($alertes ? alertes_auteur($GLOBALS['connect_id_auteur']) : '')
-	. "<section class='content'><div class='container-fluid'><div class='row' id='conteneur'>";
+	. "<div class='container-fluid'><div class='row' id='conteneur'>";
 }
 
 /**
@@ -177,7 +177,7 @@ function init_body_class() {
 		3 => 'icones_img'
 	);
 
-	return $GLOBALS['spip_ecran'] . " $spip_display_navigation $spip_display_outils " . $display_class[$GLOBALS['spip_display']];
+	return 'makicatta hold-transition sidebar-mini layout-fixed sidebar-collapse ' . $GLOBALS['spip_ecran'] . " $spip_display_navigation $spip_display_outils " . $display_class[$GLOBALS['spip_display']];
 }
 
 
