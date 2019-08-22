@@ -17,12 +17,7 @@
 	|ancre_url{#ENV{ancre}}
 	|lien_ou_expose{&laquo;,'','page-link lien_pagination','',nofollow}
 	|inserer_attribut{rel,prev}
-	)</li>][<li class="page-item"><a
-	href='[(#ENV{url}|parametre_url{#ENV{debut},''}|ancre_url{#ENV{ancre}})]'
-	class='page-link lien_pagination'
-	rel='nofollow'
-	title='1'>(#GET{premiere}|>{1}|?{#ICON{start,'',1}})</a></li><li
-	class="page-item tbc disabled"><span class="page-link">...</span></li>]<BOUCLE_pages(POUR){tableau #GET{pages}}>[
+	)</li>]<BOUCLE_pages(POUR){tableau #GET{pages}}>[
 		(#SET{item, #VALEUR|moins{1}|mult{#ENV{pas}} })
 		][<li class="page-item[(#VALEUR|=={#ENV{page_courante}}|oui)active]">(#ENV{url}
 		|parametre_url{#ENV{debut},#GET{item}}
