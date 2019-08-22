@@ -83,7 +83,7 @@
           #SET{sousmenu,#VALEUR{sousmenu}}
           <li class="nav-item[ (#GET{sousmenu}|?{has-treeview})]">
             <a href="[(#VALEUR{url}|sinon{#CLE}|bandeau_creer_url{#VALEUR{urlArg},#GET{contexte}})]"[ title="(#LIBELLE|_T|makicatta_coupera{20, '…'})"] class="nav-link">
-              <i class="nav-icon fas[ (#CLE|makicatta_quete_icone)]"></i>
+              <i class="nav-icon fas[ (#CLE|makicatta_quete_icone|sinon{#CONST{MAKICATTA_DEBUG_ICONES}|?{fa-bug,fa-spinner}})]"[(#CONST{MAKICATTA_DEBUG_ICONES}|oui)title="#CLE"]></i>
               <p>
                 [(#LIBELLE|_T|couper{20, '…'})]
                 [(#GET{sousmenu}|?{<i class="right fas fa-angle-left"></i>})]
