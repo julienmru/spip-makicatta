@@ -85,6 +85,7 @@ function makicatta_quete_icone($libelle) {
 		'media-audio' => 'fa-file-audio',
 		'media-image' => 'fa-file-image',
 		'media-video' => 'fa-file-video',
+		'medias_tabbord' => 'fa-broom',
 		'mes_preferences' => 'fa-cogs',
 		'message' => 'fa-envelope',
 		'message-envoyer' => 'fa-inbox-out',
