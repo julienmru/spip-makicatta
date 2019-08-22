@@ -50,7 +50,7 @@
     [(#SET{configurer,#AUTORISER{configurer}|?{oui,''}})]
     [(#GET{configurer}|oui)<a href="#URL_ECRIRE{configurer_identite}" class="brand-link">]
     [(#GET{configurer}|non)<span class="brand-link">]
-      <img src="[(#LOGO_SITE_SPIP|image_passe_partout{128,128}|image_recadre{128,128}|extraire_attribut{src}|sinon{#CHEMIN{prive/images/logo-spip.svg}|timestamp})]" alt="[(#NOM_SITE_SPIP|attribut_html)]" class="brand-image img-circle elevation-3">
+      <img src="[(#LOGO_SITE_SPIP|image_recadre{128:128, -, focus}|image_reduire{128,128}|extraire_attribut{src}|sinon{#CHEMIN{prive/images/logo-spip.svg}|timestamp})]" alt="[(#NOM_SITE_SPIP|attribut_html)]" class="brand-image img-circle elevation-3">
         <span class="brand-text font-weight-light">
           [ (#NOM_SITE_SPIP|couper{35}) ]
         </span>
@@ -63,7 +63,7 @@
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <BOUCLE_logo_auteur(AUTEURS){id_auteur=#SESSION{id_auteur}}{tout}>
         [<div class="image">
-          (#LOGO_AUTEUR|image_passe_partout{160,160}|image_recadre{160,160}|inserer_attribut{class,img-circle elevation-2}|sinon{"<i class='no-icon fas fa-user-circle'></i>"})
+          (#LOGO_AUTEUR|image_recadre{160:160, -, focus}|image_reduire{160,160}|inserer_attribut{class,img-circle elevation-2}|sinon{"<i class='no-icon fas fa-user-circle'></i>"})
         </div>]
         </BOUCLE_logo_auteur>
         <div class="info">

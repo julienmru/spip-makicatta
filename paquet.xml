@@ -25,6 +25,12 @@
 	<pipeline nom="makicatta_icones" action='' />
 
 	<necessite nom="scssphp" compatibilite="[2.1.0;]" />
+	<necessite nom="bigup" compatibilite="[1.0.2;]" />
+	<necessite nom="centre_image" compatibilite="[0.10.4;[" />
+	<necessite nom="crayons" compatibilite="[1.26.19;[" />
+	<necessite nom="inserer_modeles" compatibilite="[1.3.4;[" />
+	<necessite nom="orthotypo" compatibilite="[1.4.8;[" />
+	<necessite nom="ppp" compatibilite="[1.0.10;[" />
 
 	<lib nom="bootstrap-4.3.1" lien="https://github.com/twbs/bootstrap/archive/v4.3.1.zip" />
 	<lib nom="fontawesome" lien="https://use.fontawesome.com/releases/v5.10.1/fontawesome-free-5.10.1-web.zip" />
