@@ -1,7 +1,7 @@
 
 
 	[(#ENV{deplacer}|non)
-	[<a class="btn btn-default ajax" href="(#SELF|parametre_url{deplacer,oui})"><:bouton_deplacer:></a>]
+	[<a class="btn btn-default ajax" href="(#SELF|parametre_url{deplacer,oui})"><:bouton_deplacer:><span class="image_loading" style="float:#DIR_LANG_LEFT;"></span></a>]
 	]
 	[(#ENV{deplacer}|oui)
 	<a class="btn btn-default" href="#" data-toggle="modal" data-target="#chercher_rubrique"><:bouton_deplacer:></a>
