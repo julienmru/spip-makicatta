@@ -7,8 +7,9 @@
 			          <div class="col-md-6">
 			            <h1 class="m-0 text-dark">
 			            	#TITRE
-
-			            	#INCLURE{fond=prive/squelettes/inclure/deplacer, objet=article, id_objet=#ID_ARTICLE, id_parent=#ID_RUBRIQUE, id_secteur=#ID_SECTEUR, ajax}
+							[(#ENV{exec}|=={article}|oui)
+				            	#INCLURE{fond=prive/squelettes/inclure/deplacer, objet=article, id_objet=#ID_ARTICLE, id_parent=#ID_RUBRIQUE, id_secteur=#ID_SECTEUR, ajax}
+			            	]
 			            </h1>
 			          </div>
 			          #SET{id_rubrique,#ID_RUBRIQUE}

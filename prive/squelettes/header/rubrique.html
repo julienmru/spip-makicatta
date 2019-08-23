@@ -6,7 +6,7 @@
 			            <h1 class="m-0 text-dark">
 			            	#TITRE
 
-			            	#INCLURE{fond=prive/squelettes/inclure/deplacer, objet=article, id_objet=#ID_ARTICLE, id_parent=#ID_RUBRIQUE, id_secteur=#ID_SECTEUR, ajax}
+			            	#INCLURE{fond=prive/squelettes/inclure/deplacer, objet=rubrique, id_objet=#ID_RUBRIQUE, id_parent=#ID_PARENT, id_secteur=#ID_SECTEUR, ajax}
 
 
 <BOUCLE_verifierrub(RUBRIQUES){id_rubrique}{statut==.*}{si #AUTORISER{creerarticledans,rubrique,#ID_RUBRIQUE}}{0,1}>

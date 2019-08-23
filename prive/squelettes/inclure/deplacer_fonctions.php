@@ -62,10 +62,10 @@
 						'contient_breves' => $contient_breves,
 						'scb' => $scb
 					));
-				$confirm .= "\n<div class='confirmer_deplacement verdana2'>"
-					. "<div class='choix'><input type='checkbox' name='confirme_deplace' value='oui' id='confirme-deplace' /><label for='confirme-deplace'>"
-					. $scb .
-					"</label></div></div>\n";
+				$confirm .= '<div class="form-check mt-2">
+                    <input type="checkbox" class="form-check-input" id="confirme_deplace" name="confirme_deplace" value="oui">
+                    <label class="form-check-label" for="confirme_deplace">' . $scb . '</label>
+                  </div>';
 			} else {
 				$confirm .= "<input type='hidden' name='confirme_deplace' value='oui' />\n";
 			}
