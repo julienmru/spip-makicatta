@@ -1,0 +1,32 @@
+
+
+	[(#ENV{deplacer}|non)
+	[<a class="btn btn-default ajax" href="(#SELF|parametre_url{deplacer,oui})"><:bouton_deplacer:></a>]
+	]
+	[(#ENV{deplacer}|oui)
+	<a class="btn btn-default" href="#" data-toggle="modal" data-target="#chercher_rubrique"><:bouton_deplacer:></a>
+
+      <div class="modal fade" id="chercher_rubrique">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title"><:bouton_deplacer:></h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="<:bouton_fermer:>">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            [(#VAL|makicatta_chercher_rubrique{#ENV{id_objet},#ENV{id_parent},#ENV{objet},#ENV{id_secteur,#GET{id_secteur}},#ENV{restreint,#ENV{objet}|deplacement_restreint{#INFO_STATUT{#ENV{objet},#ENV{id_objet}}}},true,form_simple})]
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      [(#REM) au chargement, on déplace la modal dans le body (pour ne pas hériter des styles de <h1> et on l'affiche)]
+      <script>
+      	$(function () {
+      		$('#chercher_rubrique').appendTo("body").modal('show');
+      	});
+      </script>
+  ]

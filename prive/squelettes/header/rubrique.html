@@ -6,6 +6,8 @@
 			            <h1 class="m-0 text-dark">
 			            	#TITRE
 
+			            	#INCLURE{fond=prive/squelettes/inclure/deplacer, objet=article, id_objet=#ID_ARTICLE, id_parent=#ID_RUBRIQUE, id_secteur=#ID_SECTEUR, ajax}
+
 
 <BOUCLE_verifierrub(RUBRIQUES){id_rubrique}{statut==.*}{si #AUTORISER{creerarticledans,rubrique,#ID_RUBRIQUE}}{0,1}>
 	[<a class="btn btn-default" href="(#URL_ECRIRE{article_edit,new=oui}|parametre_url{id_rubrique,#ENV{id_rubrique}})"><:icone_ecrire_article:></a>]

@@ -8,19 +8,7 @@
 			            <h1 class="m-0 text-dark">
 			            	#TITRE
 
-
-	[(#ENV{deplacer}|non)
-	[<a class="btn btn-default" href="(#SELF|parametre_url{deplacer,oui})"><:bouton_deplacer:></a>]
-	]
-	[(#ENV{deplacer}|oui)
-	<a class="btn btn-default" href="#" onclick="jQuery('#chercher_rubrique').toggle('fast');return false;"><:bouton_deplacer:></a>
-	<div id="chercher_rubrique">
-	[(#BOITE_OUVRIR{<:titre_cadre_interieur_rubrique:>,'simple'})]
-	[(#VAL|chercher_rubrique{#ID_ARTICLE,#ID_RUBRIQUE,article,#ENV{id_secteur,#ID_SECTEUR},#ENV{restreint,#_principale:STATUT|=={publie}},true,form_simple})]
-	<br class="nettoyeur" />
-	#BOITE_FERMER
-	</div>
-	]
+			            	#INCLURE{fond=prive/squelettes/inclure/deplacer, objet=article, id_objet=#ID_ARTICLE, id_parent=#ID_RUBRIQUE, id_secteur=#ID_SECTEUR, ajax}
 			            </h1>
 			          </div>
 			          #SET{id_rubrique,#ID_RUBRIQUE}
