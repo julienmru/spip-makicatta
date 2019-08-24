@@ -22,7 +22,7 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
 
 ## Crédits
 
-[SPIP](https://github.com/spip/SPIP), Copyright © 2001-2018, Arnaud Martin, Antoine Pitrou, Philippe Rivière et Emmanuel Saint-James.
-[AdminLTE](https://github.com/ColorlibHQ/AdminLTE), Copyright (c) 2014-2018 almasaeed2010
-[jsTree Bootstrap Theme](https://github.com/orangehill/jstree-bootstrap-theme), Copyright (c) 2014 Orange Hill Development
-[Bootstrap 4 Responsive Navbar with Multi level Dropdowns](https://github.com/bootstrapthemesco/bootstrap-4-multi-dropdown-navbar), Copyright (c) fontenele
+- [SPIP](https://github.com/spip/SPIP), Copyright © 2001-2018, Arnaud Martin, Antoine Pitrou, Philippe Rivière et Emmanuel Saint-James.
+- [AdminLTE](https://github.com/ColorlibHQ/AdminLTE), Copyright (c) 2014-2018 almasaeed2010
+- [jsTree Bootstrap Theme](https://github.com/orangehill/jstree-bootstrap-theme), Copyright (c) 2014 Orange Hill Development
+- [Bootstrap 4 Responsive Navbar with Multi level Dropdowns](https://github.com/bootstrapthemesco/bootstrap-4-multi-dropdown-navbar), Copyright (c) fontenele
