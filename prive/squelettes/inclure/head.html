@@ -47,13 +47,15 @@ var error_on_ajaxform='<:erreur_technique_ajaxform|html2unicode|addslashes|unico
 [<script type="text/javascript" src="(#CHEMIN{prive/javascript/presentation.js}|timestamp)"></script>]
 [<script type="text/javascript" src="(#CHEMIN{prive/javascript/gadgets.js}|timestamp)"></script>]
 
+[(#REM) Vendors JS]
+[<script type="text/javascript" src="(#CHEMIN{lib/bootstrap-4.3.1/dist/js/bootstrap.bundle.min.js}|timestamp)"></script>]
+[<script type="text/javascript" src="(#CHEMIN{lib/adminlte/dist/js/adminlte.min.js}|timestamp)"></script>]
+[<script type="text/javascript" src="(#CHEMIN{lib/adminlte/plugins/popper/umd/popper.min.js}|timestamp)"></script>]
 [(#REM) Makicatta CSS + JS]
 [<link rel="stylesheet" type="text/css" href="(#CHEMIN{lib/adminlte/plugins/select2/css/select2.min.css}|timestamp|url_absolue)" />]
 [<link rel="stylesheet" type="text/css" href="(#CSS{css/makicatta-prive.css}|timestamp|url_absolue)" />]
 [<script type="text/javascript" src="(#CHEMIN{js/makicatta.js}|timestamp|url_absolue)"></script>]
 [(#REM) AdminLTE JS]
-[<script type="text/javascript" src="(#CHEMIN{lib/bootstrap-4.3.1/dist/js/bootstrap.bundle.min.js}|timestamp)"></script>]
-[<script type="text/javascript" src="(#CHEMIN{lib/adminlte/dist/js/adminlte.min.js}|timestamp)"></script>]
 [<script type="text/javascript" src="(#CHEMIN{lib/adminlte/plugins/select2/js/select2.full.min.js}|timestamp|url_absolue)"></script>]
 [
 [<script type="text/javascript" src="(#URL_PAGE{contentbuilder_lang}|parametre_url{lang,#LANG}|url_absolue)"></script>]

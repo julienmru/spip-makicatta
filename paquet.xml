@@ -1,7 +1,7 @@
 <paquet
 	prefix="makicatta"
 	categorie="edition"
-	version="0.2.20190822"
+	version="0.2.20190824"
 	schema="1.0.0"
 	etat="dev"
 	compatibilite="[3.2.0;3.2.*]"
@@ -23,6 +23,7 @@
 	<pipeline nom="formulaire_traiter" inclure="inc/pipelines.php" />
 	<pipeline nom="insert_head" inclure="inc/pipelines.php" />
 	<pipeline nom="scss_variables" inclure="inc/pipelines.php" />
+	<pipeline nom="styliser" inclure="inc/pipelines.php" />
 	<pipeline nom="makicatta_icones" action='' />
 
 	<necessite nom="scssphp" compatibilite="[2.1.0;]" />

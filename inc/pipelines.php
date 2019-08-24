@@ -101,3 +101,11 @@
 		$variables['fa-font-path'] = $path.'lib/fontawesome/webfonts';
 		return $variables;
 	}
+
+	function makicatta_styliser($flux) {
+		if ($flux['args']['fond'] == 'formulaires/editer_liens' && ($t = $flux['args']['contexte']['table_source']) && is_file($flux['data'].'_'.$t.'.html')) {
+			$flux['data'] = $flux['data'].'_'.$t;
+		}
+
+		return $flux;
+	}
