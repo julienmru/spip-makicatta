@@ -115,3 +115,16 @@ function filtre_afficher_plus_info($lien, $titre = "+", $titre_lien = "") {
 		return $icone . "\n<a href='$lien'>$titre_lien</a>";
 	}
 }
+
+function makicatta_lib_depreciees() {
+	$get_infos = charger_fonction('get_infos', 'plugins');
+	$plugin = $get_infos('makicatta');
+	$obsolete = [];
+	foreach($plugin['lib'] as $lib) {
+		lire_fichier(_DIR_LIB.$lib['nom'].'/install.log', $contenu);
+		if (strpos($contenu, basename($lib['lien'])) == FALSE) {
+			$obsolete[] = $lib;
+		}
+	}
+	return $obsolete;
+}

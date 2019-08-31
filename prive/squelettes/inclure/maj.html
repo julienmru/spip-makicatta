@@ -1,0 +1,34 @@
+#CACHE{300}
+
+#SET{autoriser_plugins_ajouter,#AUTORISER{plugins_ajouter}}
+<BOUCLE_plugins(PAQUETS plugins){tout}{prefixe=MAKICATTA}{actif=oui}{0,#GET{autoriser_plugins_ajouter}|oui|?{1,0}}>
+[(#MAJ_VERSION|oui)
+            <div class="info-box">
+              <span class="info-box-icon bg-warning"><i class="fas fa-sync-alt"></i></span>
+
+              <div class="info-box-content">
+                <strong class="info-box-text">#NOM</strong>
+                <span class="info-box-text"><:svp:plugin_info_up{version=#MAJ_VERSION}:>
+                	<a href="#URL_ECRIRE{admin_plugin}" class="btn btn-warning btn-sm"><:icone_admin_plugin:></a>
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+]
+</BOUCLE_plugins>
+
+[(#SET{makicatta_lib_depreciees,#GET{autoriser_plugins_ajouter}|?{#VAL|makicatta_lib_depreciees},#ARRAY})]
+[(#GET{makicatta_lib_depreciees}|oui)
+            <div class="info-box">
+              <span class="info-box-icon bg-warning"><i class="fas fa-sync-alt"></i></span>
+
+              <div class="info-box-content">
+                <strong class="info-box-text">Makicatta</strong>
+                <span class="info-box-text">[(#GET{makicatta_lib_depreciees}|count|singulier_ou_pluriel{makicatta:mise_a_jour_librairie_requise,makicatta:mise_a_jour_librairies_requises,nb,#ARRAY{librairies,#GET{makicatta_lib_depreciees}|array_column{'nom'}|implode{', '}}})]
+                	<a href="../spip.php?action=makicatta_maj_lib" class="btn btn-warning btn-sm"><:svp:bouton_up:></a>
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+]
+

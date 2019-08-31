@@ -17,4 +17,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bouton_creer' => 'Create',
 	'bouton_choisir_un_mot_cle' => 'Choose a keyword',
 	'info_rubriques_tous' => 'All sections',
+	'mise_a_jour_librairie_requise' => 'Please update library @librairies@',
+	'mise_a_jour_librairies_requises' => 'Please update libraries @librairies@',
 );
