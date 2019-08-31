@@ -23,10 +23,10 @@ function makicatta_quete_icone($libelle) {
 }
 
 function makicatta_reorganise_menu($menu) {
-	$nouveau_menu = [];
+	$nouveau_menu = array();
 	foreach($menu as $cle => $bouton) {
 		if ($cle == 'menu_edition') {
-			$sousmenu = [];
+			$sousmenu = array();
 			foreach(['articles', 'documents', 'rubriques'] as $key) {
 				if (array_key_exists($key, $bouton->sousmenu)) {
 					$sousmenu[$key] = $bouton->sousmenu[$key];
@@ -118,8 +118,11 @@ function filtre_afficher_plus_info($lien, $titre = "+", $titre_lien = "") {
 
 function makicatta_lib_depreciees() {
 	$get_infos = charger_fonction('get_infos', 'plugins');
-	$plugin = $get_infos('makicatta');
-	$obsolete = [];
+	$dir = implode('/', explode('/', _DIR_PLUGIN_MAKICATTA, -2)). '/';
+	$plug = end(explode('/', _DIR_PLUGIN_MAKICATTA, -1));
+	
+	$plugin = $get_infos($plug, false, $dir);
+	$obsolete = array();
 	foreach($plugin['lib'] as $lib) {
 		lire_fichier(_DIR_LIB.$lib['nom'].'/install.log', $contenu);
 		if (strpos($contenu, basename($lib['lien'])) == FALSE) {

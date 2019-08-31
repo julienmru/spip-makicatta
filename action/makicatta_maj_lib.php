@@ -21,7 +21,7 @@ function action_makicatta_maj_lib_dist($arg = '') {
 
 	$actionneur = new Actionneur();
 
-	$middle = [];
+	$middle = array();
 	foreach(makicatta_lib_depreciees() as $lib) {
 		$middle[] = array(
 			'todo' => 'getlib',

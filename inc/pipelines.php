@@ -36,10 +36,10 @@
 					// Makicatta rassemble en un champ les mots clés de l'article
 					// il faut donc reconstruire les requetes ajouter_lien et supprimer_lien
 					// utilisées par editer_liens
-					$ajouter_lien = [];
-					$supprimer_lien = [];
+					$ajouter_lien = array();
+					$supprimer_lien = array();
 					include_spip('action/editer_liens');
-					$liens_tries = [];
+					$liens_tries = array();
 					foreach($modifier_lien as $lien) {
 						list($objet_source, $ids, $objet_lie, $idl) = explode('-', $lien);
 						$liens_tries[$objet_lie.'-'.$idl][$objet_source][] = $ids;
@@ -49,7 +49,7 @@
 						foreach($sources as $objet_source => $ids) {
 							$liens_actuels = objet_trouver_liens([$objet_source => '*'], [$objet_lie => $idl]);
 							$ids_a_ajouter = $ids;
-							$ids_a_supprimer = [];
+							$ids_a_supprimer = array();
 							if (is_array($liens_actuels)) {
 								foreach ($liens_actuels as $lien) {
 									if (($pos = array_search($lien[$objet_source], $ids) === FALSE)) {
