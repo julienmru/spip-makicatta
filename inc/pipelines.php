@@ -90,14 +90,10 @@
 	}
 
 	function makicatta_scss_variables($variables) {
-		$me = realpath(__DIR__);
-		$racine = realpath(_DIR_RACINE);
-		if (strpos($me, $racine) === 0) {
-			$depth = substr_count(substr($me, strlen($racine)), DIRECTORY_SEPARATOR);
-			$path = str_repeat('../', $depth);
-		} else {
-			$path = '../../../';
-		}
+		$path = _DIR_PLUGIN_MAKICATTA;
+		#$path = str_replace('../', '../../', $path);
+		$path = '../../../' . $path;
+		
 		$variables['fa-font-path'] = $path.'lib/fontawesome/webfonts';
 		return $variables;
 	}

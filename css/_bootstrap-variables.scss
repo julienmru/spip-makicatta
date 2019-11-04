@@ -3,13 +3,9 @@
 // Variables should follow the `$component-state-property-size` formula for
 // consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 
-
-//
 // Color system
-//
 
-// stylelint-disable
-$white:    #ffffff !default;
+$white:    #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
@@ -22,7 +18,9 @@ $gray-900: #212529 !default;
 $black:    #000 !default;
 
 $grays: () !default;
-$grays: map-merge((
+// stylelint-disable-next-line scss/dollar-variable-default
+$grays: map-merge(
+  (
         "100": $gray-100,
         "200": $gray-200,
         "300": $gray-300,
@@ -32,7 +30,9 @@ $grays: map-merge((
         "700": $gray-700,
         "800": $gray-800,
         "900": $gray-900
-), $grays);
+  ),
+  $grays
+);
 
 $blue:    #3c8dbc !default;
 $indigo:  #6610f2 !default;
@@ -46,7 +46,9 @@ $teal:    #20c997 !default;
 $cyan:    #17a2b8 !default;
 
 $colors: () !default;
-$colors: map-merge((
+// stylelint-disable-next-line scss/dollar-variable-default
+$colors: map-merge(
+  (
         "blue":       $blue,
         "indigo":     $indigo,
         "purple":     $purple,
@@ -60,7 +62,9 @@ $colors: map-merge((
         "white":      $white,
         "gray":       $gray-600,
         "gray-dark":  $gray-800
-), $colors);
+  ),
+  $colors
+);
 
 $primary:       $blue !default;
 $secondary:     $gray-600 !default;
@@ -72,7 +76,9 @@ $light:         $gray-100 !default;
 $dark:          $gray-800 !default;
 
 $theme-colors: () !default;
-$theme-colors: map-merge((
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+  (
         "primary":    $primary,
         "secondary":  $secondary,
         "success":    $success,
@@ -81,8 +87,9 @@ $theme-colors: map-merge((
         "danger":     $danger,
         "light":      $light,
         "dark":       $dark
-), $theme-colors);
-// stylelint-enable
+  ),
+  $theme-colors
+);
 
 // Set a specific jump point for requesting color jumps
 $theme-color-interval:      8% !default;
@@ -93,6 +100,7 @@ $yiq-contrasted-threshold: 150 !default;
 // Customize the light and dark text colors for use in our YIQ color contrast function.
 $yiq-text-dark: #1F2D3D !default;
 $yiq-text-light: $white !default;
+
 
 // Options
 //
@@ -114,27 +122,34 @@ $enable-print-styles:       true !default;
 // variables. Mostly focused on spacing.
 // You can add more entries to the $spacers map, should you need more variation.
 
-// stylelint-disable
 $spacer: 1rem !default;
 $spacers: () !default;
-$spacers: map-merge((
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers: map-merge(
+  (
         0: 0,
         1: ($spacer * .25),
         2: ($spacer * .5),
         3: $spacer,
         4: ($spacer * 1.5),
         5: ($spacer * 3)
-), $spacers);
+  ),
+  $spacers
+);
 
 // This variable affects the `.h-*` and `.w-*` classes.
 $sizes: () !default;
-$sizes: map-merge((
+// stylelint-disable-next-line scss/dollar-variable-default
+$sizes: map-merge(
+  (
         25: 25%,
         50: 50%,
         75: 75%,
         100: 100%
-), $sizes);
-// stylelint-enable
+  ),
+  $sizes
+);
+
 
 // Body
 //
@@ -143,13 +158,14 @@ $sizes: map-merge((
 $body-bg:                   $white !default;
 $body-color:                $gray-900 !default;
 
+
 // Links
 //
 // Style anchor elements.
 
-$link-color:                theme-color("primary") !default;
-$link-decoration:           none !default;
-$link-hover-color:          darken($link-color, 15%) !default;
+$link-color:                              theme-color("primary") !default;
+$link-decoration:                         none !default;
+$link-hover-color:                        darken($link-color, 15%) !default;
 $link-hover-decoration:     none !default;
 
 // Paragraphs
